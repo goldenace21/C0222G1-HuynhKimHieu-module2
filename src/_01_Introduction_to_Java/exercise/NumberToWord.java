@@ -133,9 +133,9 @@ public class NumberToWord {
             }
         }
         if (numberDozens == 1) {
-            System.out.println(hundreds + dozens);
+            System.out.println(hundreds +" "+ dozens);
         } else {
-            System.out.println(hundreds + dozens + units);
+            System.out.println(hundreds +" "+ dozens +" "+ units);
         }
     }
 }
