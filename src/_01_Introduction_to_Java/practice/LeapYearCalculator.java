@@ -19,7 +19,6 @@ public class LeapYearCalculator {
                 isLeapYear = true;
             }
         }
-
         if(isLeapYear){
             System.out.printf("%d is a leap year", year);
         } else {
