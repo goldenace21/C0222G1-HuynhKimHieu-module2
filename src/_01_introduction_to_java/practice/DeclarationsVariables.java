@@ -1,4 +1,4 @@
-package _01_Introduction_to_Java.practice;
+package _01_introduction_to_java.practice;
 
 public class DeclarationsVariables {
     public static void main(String[] args) {
