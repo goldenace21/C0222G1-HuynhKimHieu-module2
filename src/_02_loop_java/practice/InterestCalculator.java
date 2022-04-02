@@ -1,6 +1,5 @@
 package _02_loop_java.practice;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class InterestCalculator {
@@ -9,16 +8,16 @@ public class InterestCalculator {
         int month = 1;
         double interestRate = 1.0;
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter investment amount: ");
-        money = input.nextDouble();
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.println("Enter investment amount: ");
+            money = input.nextDouble();
 
-        System.out.println("Enter month: ");
-        month = input.nextInt();
+            System.out.println("Enter month: ");
+            month = input.nextInt();
 
-        System.out.println("Enter annual interest rate in percentage: ");
-        interestRate = input.nextDouble();
-
+            System.out.println("Enter annual interest rate in percentage: ");
+            interestRate = input.nextDouble();
+        }
         double totalInterest = 0;
         for(int i = 0;i<month;i++){
             totalInterest += money * (interestRate/100)/12 * month;
