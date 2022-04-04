@@ -8,7 +8,7 @@ public class FindMaxElementArray2D {
         try (Scanner scanner = new Scanner(System.in)) {
             int[][] array = {
                 { 10, 2, 3 },
-                { 6, 7, 8 },
+                { 6, 7, 99 },
             };
             int max = array[0][0];
             for (int i = 0; i < array.length;i++) {
@@ -21,7 +21,8 @@ public class FindMaxElementArray2D {
                 }
             }
             System.out.println("max: " + max);
-            System.out.println(Arrays. deepToString(array));
+            System.out.println(Arrays.deepToString(array));
+            // System.out.print(array);
         }
     }
 }
