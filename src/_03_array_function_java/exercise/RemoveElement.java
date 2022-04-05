@@ -16,13 +16,12 @@ public class RemoveElement {
                     index = i;
                 }
             }
-
-            // i = 3
             for (int i = index; i < array.length; i++) {
                 if (i < array.length - 1) {
                     array[i] = array[i + 1];
                 }
             }
+            array[array.length - 1] = 0;
             System.out.println(Arrays.toString(array));
         }
     }
