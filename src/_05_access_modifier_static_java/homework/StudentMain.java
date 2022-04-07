@@ -1,6 +1,6 @@
 package _05_access_modifier_static_java.homework;
 
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class StudentMain {

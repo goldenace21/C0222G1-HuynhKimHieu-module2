@@ -1,8 +1,8 @@
-package _04_class_object_java.exercise.quadratic_equation;
+package _04_class_object_java.exercise.class_quadratic_equation;
 
 import java.util.Scanner;
 
-public class ClassQuadraticEquation {
+public class RunQuadraticEquation {
     public static void main(String[] args) {
         try (Scanner input = new Scanner(System.in)) {
             double a = input.nextDouble();

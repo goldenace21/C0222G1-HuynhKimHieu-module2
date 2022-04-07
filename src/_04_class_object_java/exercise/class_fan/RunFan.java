@@ -1,16 +1,16 @@
-package _04_class_object_java.exercise.fan;
+package _04_class_object_java.exercise.class_fan;
 
-public class ClassFan {
+public class RunFan {
     public static void main(String[] args) {
-        fan fan1 = new fan();
-        fan1.setSpeed(3);
+        Fan fan1 = new Fan();
+        fan1.setSpeed(Fan.FAST);
         fan1.setOn(true);
         fan1.setRadius(10);
         fan1.setColor("yellow");
         System.out.println(fan1.toString());
 
-        fan fan2 = new fan();
-        fan2.setSpeed(2);
+        Fan fan2 = new Fan();
+        fan2.setSpeed(Fan.MEDIUM);
         fan2.setOn(false);
         fan2.setRadius(5);
         fan2.setColor("blue");
