@@ -7,14 +7,14 @@ public class RunStopWatch {
    public static void main(String[] args) {
        StopWatch stopWatch = new StopWatch();
        System.out.println(stopWatch.start());
-       int[] array = new int[100000];
+       int[] array = new int[20];
        for (int i = 0; i < array.length; i++) {
-           array[i] = (int) Math.floor((Math.random() * 100000.0) + 1.0);
+           array[i] = (int) Math.floor((Math.random() * 20.0) + 1.0);
        }
        // Arrays.sort(array);
        int[] array2 = new int[array.length];
        int number = 0;
-       for (int i = 1; i <= 100000; i++) {
+       for (int i = 1; i <= 20; i++) {
            for (int j = 0; j < array.length; j++) {
                if (array[j] == i) {
                    array2[number] = i;
