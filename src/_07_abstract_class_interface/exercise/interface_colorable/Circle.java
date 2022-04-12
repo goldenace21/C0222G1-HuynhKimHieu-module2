@@ -33,8 +33,8 @@ public class Circle extends Shape  {
         return "A Circle with radius="
                 + getRadius()
                 + ", which is a subclass of "
-                + super.toString();
+                + super.toString()
+                + "Area = " + getArea();
     }
-
 
 }

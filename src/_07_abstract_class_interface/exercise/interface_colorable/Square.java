@@ -1,6 +1,6 @@
 package _07_abstract_class_interface.exercise.interface_colorable;
 
-public class Square extends Shape {
+public class Square extends Shape implements Colorable {
     private double side;
 
     public Square(double side) {

@@ -6,28 +6,23 @@ package _05_access_modifier_static_java.homework;
 // Xóa 1 Student ra khỏi danh sách.
 // Deadline nộp bài tới 21h hôm nay.
 
-public class Student {
-    private String name;
-    private int age;
-    private String address;
+public class Student extends Person {
     private int point;
 
     Student(){
     }
 
-    Student(String name, int age, String address, int point){
-        this.name = name;
-        this.age = age;
-        this.address = address;
+    Student(String name, int age, boolean gender, int point){
+        super(name,age,gender);
         this.point = point;
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", address='" + address + '\'' +
+                "name='" + getName() + '\'' +
+                ", age=" + getAge() +
+                ", gender='" + isGender() + '\'' +
                 ", point=" + point +
                 '}';
     }
