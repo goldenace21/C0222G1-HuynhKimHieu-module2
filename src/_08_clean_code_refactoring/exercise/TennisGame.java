@@ -1,63 +1,75 @@
 package _08_clean_code_refactoring.exercise;
 
 public class TennisGame {
+    public static final int ADVANTAGE = 1;
+    public static final int WIN = 2;
+    public static final int CONDITION = 4;
+    public static String result;
+    public static int tempScore;
 
-    public static String getScore(String player1Name, String player2Name, int m_score1, int m_score2) {
-        String score = "";
-        int tempScore=0;
-        if (m_score1==m_score2)
-        {
-            switch (m_score1)
-            {
+    public static String getResult(int player1, int player2) {
+        if (player1 == player2) {
+            result = check2(player1);
+        } else if (player1 >= CONDITION || player2 >= CONDITION) {
+            result = check1(player1, player2);
+        } else {
+            result = check3(player1, player2);
+        }
+        return result;
+    }
+
+    public static String check1(int player1, int player2) {
+        if ((player1 - player2) >= WIN) result = "player1 win";
+        else if ((player1 - player2) == ADVANTAGE) result = "Advantage player1";
+        else if ((player1 - player2) == -ADVANTAGE) result = "Advantage player2";
+        else result = "player2 win";
+        return result;
+    }
+
+    public static String check2(int tempScore) {
+        switch (tempScore) {
+            case 0:
+                result = "Love-All";
+                break;
+            case 1:
+                result = "Fifteen-All";
+                break;
+            case 2:
+                result = "Thirty-All";
+                break;
+            case 3:
+                result = "Forty-All";
+                break;
+            default:
+                result = "Deuce";
+                break;
+        }
+        return result;
+    }
+
+
+    public static String check3(int player1, int player2) {
+        for (int i = 1; i < 3; i++) {
+            if (i == 1) tempScore = player1;
+            else {
+                result += "-";
+                tempScore = player2;
+            }
+            switch (tempScore) {
                 case 0:
-                    score = "Love-All";
+                    result += "Love";
                     break;
                 case 1:
-                    score = "Fifteen-All";
+                    result += "Fifteen";
                     break;
                 case 2:
-                    score = "Thirty-All";
+                    result += "Thirty";
                     break;
                 case 3:
-                    score = "Forty-All";
+                    result += "Forty";
                     break;
-                default:
-                    score = "Deuce";
-                    break;
-
             }
         }
-        else if (m_score1>=4 || m_score2>=4)
-        {
-            int minusResult = m_score1-m_score2;
-            if (minusResult==1) score ="Advantage player1";
-            else if (minusResult ==-1) score ="Advantage player2";
-            else if (minusResult>=2) score = "Win for player1";
-            else score ="Win for player2";
-        }
-        else
-        {
-            for (int i=1; i<3; i++)
-            {
-                if (i==1) tempScore = m_score1;
-                else { score+="-"; tempScore = m_score2;}
-                switch(tempScore)
-                {
-                    case 0:
-                        score+="Love";
-                        break;
-                    case 1:
-                        score+="Fifteen";
-                        break;
-                    case 2:
-                        score+="Thirty";
-                        break;
-                    case 3:
-                        score+="Forty";
-                        break;
-                }
-            }
-        }
-        return score;
+        return result;
     }
 }
