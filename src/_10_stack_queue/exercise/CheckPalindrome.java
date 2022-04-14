@@ -1,7 +1,6 @@
 package _10_stack_queue.exercise;
 
 import java.util.LinkedList;
-import java.util.Locale;
 import java.util.Queue;
 import java.util.Stack;
 
