@@ -6,7 +6,9 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 public class ProductManager {
+
     public static ArrayList<Product> listProduct = new ArrayList<>(10);
+    public static Scanner scanner = new Scanner(System.in);
 
     public static void displayProduct() {
         for (Product product : listProduct) {
@@ -15,7 +17,6 @@ public class ProductManager {
     }
 
     public static void addProduct() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter product id: ");
         int id = Integer.parseInt(scanner.nextLine());
         System.out.println("Enter product name: ");
@@ -29,7 +30,6 @@ public class ProductManager {
     }
 
     public static void setProduct() {
-        Scanner scanner = new Scanner(System.in);
         int id = scanner.nextInt();
         for (int i = 0;i< listProduct.size();i++) {
             if (listProduct.get(i).getId() == id) {
@@ -49,7 +49,6 @@ public class ProductManager {
     }
 
     public static void removeProduct() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter index: ");
         int index = scanner.nextInt();
         for (int i = 0;i < listProduct.size();i++ ) {
@@ -61,7 +60,6 @@ public class ProductManager {
     }
 
     public static void findProduct() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter name: ");
         String name = scanner.nextLine();
         for (Product item : listProduct) {
