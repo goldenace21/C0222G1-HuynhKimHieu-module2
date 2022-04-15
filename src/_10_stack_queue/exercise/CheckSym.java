@@ -3,7 +3,7 @@ package _10_stack_queue.exercise;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Sym {
+public class CheckSym {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Stack<Character> stack = new Stack<>();

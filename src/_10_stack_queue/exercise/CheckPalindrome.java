@@ -9,18 +9,21 @@ public class CheckPalindrome {
         String string = "Able was I ere I saw Elba";
         String[] charArray;
         charArray = string.split("");
-
+        StringBuilder string1 = new StringBuilder();
+        StringBuilder string2 = new StringBuilder();
         Queue<String> queueString = new LinkedList<>();
         Stack<String> stackString = new Stack<>();
-        for (int i = 0,j = string.length()-1;i< string.length();i++,j--) {
+
+        for (int i = 0; i < string.length(); i++) {
             queueString.add(charArray[i].toLowerCase());
-            stackString.push(charArray[j].toLowerCase());
+            stackString.push(charArray[i].toLowerCase());
         }
 
-        if (queueString.equals(stackString)) {
-            System.out.println("palindrome");
-        } else {
-            System.out.println("!palindrome");
+        for (int i = 0; i < string.length(); i++) {
+            string1.append(stackString.pop());
+            string2.append(queueString.poll());
         }
+
+        System.err.println(" String is Palindrome ? " + string1.toString().equals(string2.toString()));
     }
 }
