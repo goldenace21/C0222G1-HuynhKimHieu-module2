@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ProductManager {
 
-    public static ArrayList<Product> listProduct = new ArrayList<>(10);
+    public static ArrayList<Product> listProduct = new ArrayList<>();
     public static Scanner scanner = new Scanner(System.in);
 
     public static void displayProduct() {
@@ -72,8 +72,8 @@ public class ProductManager {
     public static void descending(){
         Collections.sort(listProduct, new Comparator<Product>() {
             @Override
-            public int compare(Product o1, Product o2) {return o2.getPrice() - o1.getPrice(); }
-        });
+            public int compare(Product o1, Product o2) {
+                return o2.getPrice() - o1.getPrice();}});
         displayProduct();
     }
 
@@ -81,9 +81,7 @@ public class ProductManager {
         Collections.sort(listProduct, new Comparator<Product>() {
             @Override
             public int compare(Product o1, Product o2) {
-                return o1.getPrice() - o2.getPrice();
-            }
-        });
+                return o1.getPrice() - o2.getPrice();}});
         displayProduct();
     }
 }

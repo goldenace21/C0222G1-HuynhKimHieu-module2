@@ -7,8 +7,8 @@ public class ProductManager {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void displayProduct() {
-        for (int i = 0; i < listProduct.size(); i++) {
-            System.out.println(listProduct.get(i));
+        for (Product product : listProduct) {
+            System.out.println(product);
         }
     }
 
@@ -69,9 +69,7 @@ public class ProductManager {
         Collections.sort(listProduct, new Comparator<Product>() {
             @Override
             public int compare(Product o1, Product o2) {
-                return o2.getPrice() - o1.getPrice();
-            }
-        });
+                return o2.getPrice() - o1.getPrice();}});
         displayProduct();
     }
 
@@ -79,9 +77,7 @@ public class ProductManager {
         Collections.sort(listProduct, new Comparator<Product>() {
             @Override
             public int compare(Product o1, Product o2) {
-                return o1.getPrice() - o2.getPrice();
-            }
-        });
+                return o1.getPrice() - o2.getPrice();}});
         displayProduct();
     }
 }
