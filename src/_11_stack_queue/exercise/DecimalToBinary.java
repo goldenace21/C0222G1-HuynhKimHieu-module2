@@ -1,4 +1,4 @@
-package _12_stack_queue.exercise;
+package _11_stack_queue.exercise;
 
 import java.util.Scanner;
 import java.util.Stack;

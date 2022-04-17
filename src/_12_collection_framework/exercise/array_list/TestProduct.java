@@ -1,8 +1,8 @@
-package _11_collection_framework.exercise.array_list;
+package _12_collection_framework.exercise.array_list;
 
 import java.util.Scanner;
 
-import static _11_collection_framework.exercise.array_list.ProductManager.*;
+import static _12_collection_framework.exercise.array_list.ProductManager.*;
 
 public class TestProduct {
     public static void main(String[] args) {

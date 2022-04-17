@@ -1,4 +1,4 @@
-package _11_collection_framework.exercise.array_list;
+package _12_collection_framework.exercise.array_list;
 
 import java.util.*;
 

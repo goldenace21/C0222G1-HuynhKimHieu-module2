@@ -1,4 +1,4 @@
-package _12_stack_queue.exercise.sort_list;
+package _11_stack_queue.exercise.sort_list;
 
 import java.util.Arrays;
 import java.util.LinkedList;
