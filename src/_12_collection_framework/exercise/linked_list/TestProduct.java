@@ -1,8 +1,9 @@
-package _12_collection_framework.exercise.array_list;
+package _12_collection_framework.exercise.linked_list;
 
 import java.util.Scanner;
 
 import static _12_collection_framework.exercise.array_list.ProductManager.*;
+import static _12_collection_framework.exercise.linked_list.ProductManager.linkedProduct;
 
 public class TestProduct {
     public static void main(String[] args) {
@@ -12,9 +13,9 @@ public class TestProduct {
         Product obj2 = new Product(2, "book", 12000);
         Product obj3 = new Product(3, "ruler", 13000);
 
-        listProduct.add(obj1);
-        listProduct.add(obj2);
-        listProduct.add(obj3);
+        linkedProduct.add(obj1);
+        linkedProduct.add(obj2);
+        linkedProduct.add(obj3);
 
         boolean flag = true;
         while (flag) {

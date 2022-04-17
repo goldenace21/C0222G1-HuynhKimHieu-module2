@@ -13,12 +13,12 @@ public class CountWordUseTreeMap {
 
         TreeMap<String, Integer> map = new TreeMap<>();
 
-        for (String s : stringArray) {
-            if (map.containsKey(s)) {
-                int value = map.get(s) + 1;
-                map.put(s, value);
+        for (String key : stringArray) {
+            if (map.containsKey(key)) {
+                int value = map.get(key) + 1;
+                map.put(key, value);
             } else {
-                map.put(s, 1);
+                map.put(key, 1);
             }
         }
         System.out.println(map);
