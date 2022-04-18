@@ -82,7 +82,9 @@ public class ProductManager {
     public static void descending() {
         Collections.sort(linkedProduct, new Comparator<Product>() {
             @Override
-            public int compare(Product o1, Product o2) {return o2.getPrice() - o1.getPrice();}
+            public int compare(Product o1, Product o2) {
+                return o2.getPrice() - o1.getPrice();
+            }
         });
         displayProduct();
     }
@@ -90,7 +92,9 @@ public class ProductManager {
     public static void ascending() {
         Collections.sort(linkedProduct, new Comparator<Product>() {
             @Override
-            public int compare(Product o1, Product o2) {return o1.getPrice() - o2.getPrice();}
+            public int compare(Product o1, Product o2) {
+                return o1.getPrice() - o2.getPrice();
+            }
         });
         displayProduct();
     }
