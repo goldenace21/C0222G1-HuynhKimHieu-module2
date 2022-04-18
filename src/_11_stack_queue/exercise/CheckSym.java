@@ -27,7 +27,7 @@ public class CheckSym {
                 }
             }
         }
-        System.out.println(stack.isEmpty());
+        System.out.println(check);
     }
 }
 

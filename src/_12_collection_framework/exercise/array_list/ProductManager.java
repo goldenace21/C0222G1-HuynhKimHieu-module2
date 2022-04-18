@@ -29,10 +29,8 @@ public class ProductManager {
                 listProduct.add(obj);
                 displayProduct();
                 break;
-            } else if (listProduct.get(i).getId() != obj.getId()) {
-            } else {
+            } else if (listProduct.get(i).getId() == obj.getId()) {
                 System.out.println("id already exists!");
-                break;
             }
         }
     }
@@ -49,10 +47,8 @@ public class ProductManager {
                                  listProduct.set(i, obj);
                                  displayProduct();
                                  break;
-                    } else if (listProduct.get(j).getId() != obj.getId()) {
-                    } else {
+                    } else if (listProduct.get(j).getId() == obj.getId()) {
                         System.out.println("id already exists!");
-                        break;
                     }
                 }
             }
