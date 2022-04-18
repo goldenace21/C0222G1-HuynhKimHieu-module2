@@ -1,8 +1,8 @@
 package case_study.services.impl;
 
-import case_study.services.Interface.EmployerService;
+import case_study.services.Interface.FacilityService;
 
-public class EmployeeServiceImpl implements EmployerService {
+public class FacilityServiceImpl implements FacilityService {
     @Override
     public void display() {
 

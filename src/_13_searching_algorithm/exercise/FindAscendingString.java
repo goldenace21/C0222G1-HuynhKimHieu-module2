@@ -5,7 +5,7 @@ import java.util.List;
 
 public class FindAscendingString {
     public static void main(String[] args) {
-        String string = "Weelcome";
+        String string = "Welcome";
         char min = '@';
         List<Character> list = new ArrayList<>();
         StringBuilder ascendingString = new StringBuilder();

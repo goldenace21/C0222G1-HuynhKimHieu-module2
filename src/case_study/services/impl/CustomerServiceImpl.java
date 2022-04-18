@@ -1,6 +1,6 @@
 package case_study.services.impl;
 
-import case_study.services.CustomerService;
+import case_study.services.Interface.CustomerService;
 
 public class CustomerServiceImpl implements CustomerService {
     @Override
