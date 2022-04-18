@@ -31,6 +31,7 @@ public class ProductManager {
                 break;
             } else if (linkedProduct.get(i).getId() == obj.getId()) {
                 System.out.println("id already exists!");
+                break;
             }
         }
     }
@@ -49,6 +50,7 @@ public class ProductManager {
                                  break;
                     } else if (linkedProduct.get(j).getId() == obj.getId()) {
                         System.out.println("id already exists!");
+                        break;
                     }
                 }
             }
