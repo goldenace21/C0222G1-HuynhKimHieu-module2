@@ -1,20 +1,24 @@
 package case_study.models.person;
 
+import java.security.PrivateKey;
+
 public abstract class Person {
     private int id;
-    private String name;
     private int age;
-    private String address;
+    private String name;
     private boolean gender;
+    private String idCard;
+    private String email;
+    private String phoneNumber;
 
-    public Person() {
-    }
-
-    public Person(int id, String name, int age, String address,boolean gender) {
+    public Person(int id, int age, String name, boolean gender, String idCard, String email, String phoneNumber) {
         this.id = id;
-        this.name = name;
         this.age = age;
-        this.address = address;
+        this.name = name;
+        this.gender = gender;
+        this.idCard = idCard;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
     public int getId() {
@@ -25,14 +29,6 @@ public abstract class Person {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getAge() {
         return age;
     }
@@ -41,12 +37,12 @@ public abstract class Person {
         this.age = age;
     }
 
-    public String getAddress() {
-        return address;
+    public String getName() {
+        return name;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public boolean isGender() {
@@ -57,14 +53,40 @@ public abstract class Person {
         this.gender = gender;
     }
 
+    public String getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
                 ", age=" + age +
-                ", address='" + address + '\'' +
+                ", name='" + name + '\'' +
                 ", gender=" + gender +
+                ", idCard='" + idCard + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
 }

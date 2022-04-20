@@ -37,14 +37,14 @@ public class ProductManager {
     }
 
     public static void setProduct() {
-        System.err.println("Enter index: ");
-        int index = Integer.parseInt(scanner.nextLine());
+        System.err.println("Enter id: ");
+        int id = Integer.parseInt(scanner.nextLine());
         Product obj = createObj();
         for (int i = 0; i < listProduct.size(); i++) {
-            if (i == index) {
+            if (listProduct.get(i).getId() == id) {
                 for (int j = 0;j< listProduct.size();j++) {
                     if (j == listProduct.size() - 1 && listProduct.get(j).getId() != obj.getId()
-                          || listProduct.get(index).getId() == obj.getId()) {
+                          || listProduct.get(i).getId() == obj.getId()) {
                                  listProduct.set(i, obj);
                                  displayProduct();
                                  break;
