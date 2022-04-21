@@ -1,5 +1,6 @@
 package _12_collection_framework.exercise.array_list;
 
+import java.io.File;
 import java.util.Scanner;
 
 import static _12_collection_framework.exercise.array_list.ProductManager.*;
@@ -25,7 +26,9 @@ public class TestProduct {
                                "5: Find product" + "\n" +
                                "6: Sort ascending" + "\n" +
                                "7: Sort descending" + "\n" +
-                               "8: Exit" + "\n" +
+                               "8: Write product to text" + "\n" +
+                               "9: Read product from text" + "\n" +
+                               "10: Exit" + "\n" +
                                "Enter your choose: ");
             int choose = scanner.nextInt();
             switch (choose) {
@@ -51,6 +54,16 @@ public class TestProduct {
                     descending();
                     break;
                 case 8:
+                    String filePath1 = "src/_12_collection_framework/exercise/array_list/text";
+                    File file1 = new File(filePath1);
+                    writeObj(file1);
+                    break;
+                case 9:
+                    String filePath2 = "src/_12_collection_framework/exercise/array_list/text";
+                    File file2 = new File(filePath2);
+                    readObj(file2);
+                    break;
+                case 10:
                     flag = false;
             }
         }

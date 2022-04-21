@@ -1,5 +1,6 @@
 package _12_collection_framework.exercise.array_list;
 
+import java.io.*;
 import java.util.*;
 
 public class ProductManager {
@@ -76,6 +77,32 @@ public class ProductManager {
             if (listProduct.get(i).getName().contains(name)) {
                 System.out.println(listProduct.get(i));
             }
+        }
+    }
+
+    public static void writeObj(File file) {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            for (Product product : listProduct) {
+                bw.write(product.toString()+"\n");
+            }
+            bw.close();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void readObj(File file) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            Product product = null;
+            String line = "";
+            while((line= br.readLine()) != null) {
+                System.out.println(line);
+            }
+            br.close();
+        }catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
