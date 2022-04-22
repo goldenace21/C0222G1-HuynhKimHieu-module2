@@ -2,28 +2,45 @@ package _16_io_text_file.exercise.read_file_csv;
 
 import _12_collection_framework.exercise.array_list.Product;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReadFile {
     public static void main(String[] args) {
         String filePath = "src/_16_io_text_file/exercise/read_file_csv/nation.csv";
-        File file = new File(filePath);
-        readObj(file);
+        List<String []> listString = readFile(filePath);
+        display(listString);
     }
+    public static void display(List<String[]> listString) {
+        List<Nation> nationList = new ArrayList<>();
+        Nation nation;
+        for (String[] item : listString) {
+            nation = new Nation(Integer.parseInt(item[0]),item[1],item[2]);
+            nationList.add(nation);
+        }
+        for (Nation item : nationList) {
+            System.out.println(item.toString());
+        }
 
-    public static void readObj(File file) {
+    }
+    public static List<String[]> readFile(String path) {
+        List<String []> listString = new ArrayList<>();
         try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            Product product = null;
+            BufferedReader br = new BufferedReader((new FileReader(path)));
             String line = "";
-            while((line= br.readLine()) != null) {
-                System.out.println(line);
+            while((line = br.readLine()) != null) {
+                String[] array = line.split(",");
+                listString.add(array);
             }
             br.close();
-        } catch (Exception e) {
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
+        return listString;
     }
+
+
 }

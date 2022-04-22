@@ -6,9 +6,9 @@ import java.nio.file.Files;
 
 public class CopyFileText {
     public static void main(String[] args) {
-        File f = new File("src/_16_io_text_file/exercise/copy_file_test/Soure");
+        File f = new File("src/_16_io_text_file/exercise/copy_file_test/Soure.txt");
         try {
-            PrintWriter pw = new PrintWriter("src/_16_io_text_file/exercise/copy_file_test/Target");
+            PrintWriter pw = new PrintWriter("src/_16_io_text_file/exercise/copy_file_test/Target.txt");
             try {
                 BufferedReader br = Files.newBufferedReader(f.toPath(), StandardCharsets.UTF_8);
                 String line = null;
