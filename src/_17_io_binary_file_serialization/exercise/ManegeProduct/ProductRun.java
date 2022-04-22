@@ -40,7 +40,7 @@ public class ProductRun {
     }
 
     public static void display() {
-        write("src/_17_io_binary_file_serialization/exercise/ManegeProduct/text.txt", listProduct);
+        write("src/_17_io_binary_file_serialization/exercise/ManegeProduct/Text.txt", listProduct);
         try {
             read();
         } catch (Exception e) {
@@ -59,7 +59,7 @@ public class ProductRun {
         int price = Integer.parseInt(scanner.nextLine());
         Product product = new Product(id, name, brand, price);
         listProduct.add(product);
-        write("src/_17_io_binary_file_serialization/exercise/ManegeProduct/text.txt", listProduct);
+        write("src/_17_io_binary_file_serialization/exercise/ManegeProduct/Text.txt", listProduct);
     }
 
     public static void findById() {
@@ -91,7 +91,7 @@ public class ProductRun {
     public static void read() {
         Object obj = null;
         try {
-            FileInputStream fis = new FileInputStream("src/_17_io_binary_file_serialization/exercise/ManegeProduct/text.txt");
+            FileInputStream fis = new FileInputStream("src/_17_io_binary_file_serialization/exercise/ManegeProduct/Text.txt");
             ObjectInputStream ois = new ObjectInputStream(fis);
             while (fis.available() > 0) {
                 obj = ois.readObject();
