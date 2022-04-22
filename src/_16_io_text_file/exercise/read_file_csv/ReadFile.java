@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ReadFile {
     public static void main(String[] args) {
-        String filePath = "src/_16_io_text_file/exercise/read_file_csv/nation.csv";
+        String filePath = "src/_16_io_text_file/exercise/read_file_csv/Nation.csv";
         List<String []> listString = readFile(filePath);
         display(listString);
     }
