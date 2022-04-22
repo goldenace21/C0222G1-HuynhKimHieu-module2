@@ -23,7 +23,7 @@ public class ProductRun {
             System.out.println("2: Add");
             System.out.println("3: Search");
             System.out.println("4: Exit");
-            System.out.println("Enter choise:");
+            System.out.println("Enter choose:");
             switch (Integer.parseInt(scanner.nextLine())) {
                 case 1:
                     display();
