@@ -16,6 +16,7 @@ public class ProductRun {
         listProduct.add(product);
         listProduct.add(product1);
         listProduct.add(product2);
+        write("src/_17_io_binary_file_serialization/exercise/ManegeProduct/Text.txt", listProduct);
         boolean flag = true;
         while (flag) {
             System.out.println("1: Display");
@@ -40,12 +41,7 @@ public class ProductRun {
     }
 
     public static void display() {
-        write("src/_17_io_binary_file_serialization/exercise/ManegeProduct/Text.txt", listProduct);
-        try {
-            read();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        read();
     }
 
     public static void add() {
