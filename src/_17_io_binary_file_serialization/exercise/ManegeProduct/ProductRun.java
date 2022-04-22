@@ -70,11 +70,10 @@ public class ProductRun {
     }
 
     public static void write(String path, List<Product> list) {
-        File file = new File(path);
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
-            fos = new FileOutputStream(file, false);
+            fos = new FileOutputStream(path, false);
             oos = new ObjectOutputStream(fos);
             oos.writeObject(list);
             fos.close();
