@@ -11,8 +11,16 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
-    public Employee(int id, int age, String name, boolean gender, String idCard, String email, String phoneNumber, String level, String position, int salary) {
-        super(id, age, name, gender, idCard, email, phoneNumber);
+    public Employee( int idCard,
+                     String name,
+                     int age,
+                     boolean sex,
+                     String email,
+                     String phoneNumber,
+                     String level,
+                     String position,
+                     int salary) {
+        super(idCard,name, age,sex, email, phoneNumber);
         this.level = level;
         this.position = position;
         this.salary = salary;

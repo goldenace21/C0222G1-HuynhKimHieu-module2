@@ -5,7 +5,7 @@ public class StackMethod {
             pop: Xóa bỏ phần tử đầu tiên ở đỉnh của ngăn xếp, số phần tử của ngăn xếp giảm đi 1.
             peek: lấy giá trị ra nhưng không xóa khỏi stack.
             clear: xóa all elements trong stack.
-            contains: xác định giá trị có tồn tại trong stack hay không.
+            contains: xác định giá trị có tồn tại trong stack hay không(kiểm tra tương đối).
             Top: Lấy giá trị của phần tử đầu tiên ở đỉnh của ngăn xếp, số phần tử của ngăn xếp không thay đổi.
             IsEmpty: Kiểm tra ngăn xếp trống hay không. Ngăn xếp trống là ngăn xếp không có phần tử nào.
             IsFull: Kiểm tra ngăn xếp đã đầy hay chưa. Thao tác này không phải lúc nào cũng có.

@@ -3,41 +3,31 @@ package case_study.models.person;
 import java.security.PrivateKey;
 
 public abstract class Person {
-    private int id;
-    private int age;
+    private int idCard;
     private String name;
-    private boolean gender;
-    private String idCard;
+    private int age;
+    private boolean sex;
     private String email;
     private String phoneNumber;
 
     public Person() {
     }
 
-    public Person(int id, int age, String name, boolean gender, String idCard, String email, String phoneNumber) {
-        this.id = id;
-        this.age = age;
-        this.name = name;
-        this.gender = gender;
+    public Person(int idCard, String name, int age, boolean sex, String email, String phoneNumber) {
         this.idCard = idCard;
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
 
-    public int getId() {
-        return id;
+    public int getIdCard() {
+        return idCard;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
+    public void setIdCard(int idCard) {
+        this.idCard = idCard;
     }
 
     public String getName() {
@@ -48,20 +38,20 @@ public abstract class Person {
         this.name = name;
     }
 
-    public boolean isGender() {
-        return gender;
+    public int getAge() {
+        return age;
     }
 
-    public void setGender(boolean gender) {
-        this.gender = gender;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public String getIdCard() {
-        return idCard;
+    public boolean isSex() {
+        return sex;
     }
 
-    public void setIdCard(String idCard) {
-        this.idCard = idCard;
+    public void setSex(boolean gender) {
+        this.sex = gender;
     }
 
     public String getEmail() {
@@ -83,11 +73,10 @@ public abstract class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "id=" + id +
-                ", age=" + age +
+                "idCard=" + idCard +
                 ", name='" + name + '\'' +
-                ", gender=" + gender +
-                ", idCard='" + idCard + '\'' +
+                ", age=" + age +
+                ", gender=" + sex +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 '}';

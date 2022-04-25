@@ -6,20 +6,26 @@ import java.util.Scanner;
 
 public class FuramaController {
     public static Scanner scanner = new Scanner(System.in);
+    public static boolean check = true;
+
     public static void main(String[] args) {
         displayMainMenu();
     }
 
     public static void displayMainMenu() {
-        boolean check = true;
         while (check) {
-            System.out.println("1. Employee Management");
-            System.out.println("2. Customer Management");
-            System.out.println("3. Facility Management");
-            System.out.println("4. Booking Management");
-            System.out.println("5. Promotion Management");
-            System.out.println("6. Exit");
-            switch (scanner.nextInt()) {
+            System.out.print("╔════════════════════════════════════╗"
+                    + "\n" + "║         MANAGEMENT PROGRAM         ║"
+                    + "\n" + "╠════════════════════════════════════╣"
+                    + "\n" + "║ 1. Employee Management             ║"
+                    + "\n" + "║ 2. Customer Management             ║"
+                    + "\n" + "║ 3. Facility Management             ║"
+                    + "\n" + "║ 4. Booking Management              ║"
+                    + "\n" + "║ 5. Promotion Management            ║"
+                    + "\n" + "║ 6. Exit                            ║"
+                    + "\n" + "╚════════════════════════════════════╝"
+                    + "\n" + " Enter your choose: ");
+            switch (Integer.parseInt(scanner.nextLine())) {
                 case 1:
                     displayEmployeeManagement();
                     break;
@@ -44,31 +50,44 @@ public class FuramaController {
 
     public static void displayEmployeeManagement() {
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
-
-        boolean check = true;
         while (check) {
-            System.out.println("1. Display list employee");
-            System.out.println("2. Add new employee");
-            System.out.println("3. Edit employee");
-            System.out.println("4. Return main menu");
-            switch (scanner.nextInt()) {
+            System.out.print("╔════════════════════════════════════╗"
+                    + "\n" + "║         EMPLOYEE MANAGEMENT        ║"
+                    + "\n" + "╠════════════════════════════════════╣"
+                    + "\n" + "║ 1. Display list employee           ║"
+                    + "\n" + "║ 2. Add new employee                ║"
+                    + "\n" + "║ 3. Edit employee                   ║"
+                    + "\n" + "║ 4. Remove employee                 ║"
+                    + "\n" + "║ 6. Return main menu                ║"
+                    + "\n" + "╚════════════════════════════════════╝"
+                    + "\n" + " Enter your choose: ");
+            switch (Integer.parseInt(scanner.nextLine())) {
                 case 1:
                     employeeService.display();
                     break;
                 case 2:
                     employeeService.addNew();
+                    break;
+                case 3:
+                    employeeService.edit();
+                    break;
+                case 4:
+                    employeeService.delete();
+                    break;
+                case 5:
+                    check = false;
+
             }
         }
     }
 
     public static void displayCustomerManagement() {
-        boolean check = true;
         while (check) {
             System.out.println("1. Display list customers");
             System.out.println("2. Add new customer");
             System.out.println("3. Edit customer");
             System.out.println("4. Return main menu");
-            switch (scanner.nextInt()) {
+            switch (Integer.parseInt(scanner.nextLine())) {
                 case 1:
 
             }
@@ -76,13 +95,12 @@ public class FuramaController {
     }
 
     public static void displayFacilityManagement() {
-        boolean check = true;
         while (check) {
             System.out.println("1. Display list facility");
             System.out.println("2. Add new facility");
             System.out.println("3. Display list facility maintenance");
             System.out.println("4. Return main menu");
-            switch (scanner.nextInt()) {
+            switch (Integer.parseInt(scanner.nextLine())) {
                 case 1:
 
             }
@@ -90,7 +108,6 @@ public class FuramaController {
     }
 
     public static void displayBookingManagement() {
-        boolean check = true;
         while (check) {
             System.out.println("1. Add new booking");
             System.out.println("2. Display list booking");
@@ -98,7 +115,7 @@ public class FuramaController {
             System.out.println("4. Display list contracts");
             System.out.println("5. Edit contracts");
             System.out.println("6. Return main menu");
-            switch (scanner.nextInt()) {
+            switch (Integer.parseInt(scanner.nextLine())) {
                 case 1:
 
             }
@@ -106,12 +123,11 @@ public class FuramaController {
     }
 
     public static void displayPromotionManagement() {
-        boolean check = true;
         while (check) {
             System.out.println("1. Display list customers use service");
             System.out.println("2. Display list customers get voucher");
             System.out.println("6. Return main menu");
-            switch (scanner.nextInt()) {
+            switch (Integer.parseInt(scanner.nextLine())) {
                 case 1:
 
             }

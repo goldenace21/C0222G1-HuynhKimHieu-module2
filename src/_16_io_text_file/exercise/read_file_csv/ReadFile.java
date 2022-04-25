@@ -1,7 +1,5 @@
 package _16_io_text_file.exercise.read_file_csv;
 
-import _12_collection_framework.exercise.array_list.Product;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +32,6 @@ public class ReadFile {
                 listString.add(array);
             }
             br.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

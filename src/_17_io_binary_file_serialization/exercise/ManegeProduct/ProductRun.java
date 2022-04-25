@@ -8,15 +8,18 @@ import java.util.Scanner;
 public class ProductRun {
     public static Scanner scanner = new Scanner(System.in);
     public static List<Product> listProduct = new ArrayList<>();
+    public static File file = new File("src/_17_io_binary_file_serialization/exercise/ManegeProduct/Text.txt");
+    public static String stringPath = file.getAbsolutePath();
 
-    public static void main(String[] args) throws Exception {
-        Product product = new Product(1, "santafe", "hyundai", 10000);
-        Product product1 = new Product(2, "k5", "kiA", 14000);
-        Product product2 = new Product(3, "luxA", "vinfast", 12000);
-        listProduct.add(product);
-        listProduct.add(product1);
-        listProduct.add(product2);
-        write("src/_17_io_binary_file_serialization/exercise/ManegeProduct/Text.txt", listProduct);
+     static {
+        listProduct.add(new Product(1, "santafe", "hyundai", 10000)) ;
+        listProduct.add(new Product(2, "k5", "kiA", 14000)) ;
+        listProduct.add(new Product(3, "luxA", "vinFast", 12000)) ;
+
+     }
+
+    public static void main(String[] args) {
+        write(stringPath,listProduct);
         boolean flag = true;
         while (flag) {
             System.out.println("1: Display");
@@ -29,10 +32,10 @@ public class ProductRun {
                     display();
                     break;
                 case 2:
-                    add();
+                    addObject();
                     break;
                 case 3:
-                    findById();
+                    findByName();
                     break;
                 case 4:
                     flag = false;
@@ -41,10 +44,13 @@ public class ProductRun {
     }
 
     public static void display() {
-        read();
+        List<Product> list = read();
+        for (Product item: list) {
+            System.out.println(item);
+        }
     }
 
-    public static void add() {
+    public static Product add() {
         System.out.println("Enter id: ");
         int id = Integer.parseInt(scanner.nextLine());
         System.out.println("Enter name: ");
@@ -53,17 +59,17 @@ public class ProductRun {
         String brand = scanner.nextLine();
         System.out.println("Enter price: ");
         int price = Integer.parseInt(scanner.nextLine());
-        Product product = new Product(id, name, brand, price);
-        listProduct.add(product);
-        write("src/_17_io_binary_file_serialization/exercise/ManegeProduct/Text.txt", listProduct);
+        write(stringPath, listProduct);
+        return new Product(id, name, brand, price);
     }
 
-    public static void findById() {
-        System.out.println("Enter id: ");
-        int id = scanner.nextInt();
+    public static void findByName() {
+         List<Product> products = read();
+        System.out.println("Enter name: ");
+        String name = scanner.nextLine();
 
-        for (Product item : listProduct) {
-            if (item.getId() == id) {
+        for (Product item : products) {
+            if (item.getName().contains(name)) {
                 System.out.println(item);
             }
         }
@@ -83,19 +89,23 @@ public class ProductRun {
         }
     }
 
-    public static void read() {
-        Object obj = null;
+    public static List<Product> read() {
+        List<Product> list = new ArrayList<>();
         try {
-            FileInputStream fis = new FileInputStream("src/_17_io_binary_file_serialization/exercise/ManegeProduct/Text.txt");
+            FileInputStream fis = new FileInputStream(stringPath);
             ObjectInputStream ois = new ObjectInputStream(fis);
-            while (fis.available() > 0) {
-                obj = ois.readObject();
-                System.out.println(obj);
-            }
+            list = (List<Product>) ois.readObject();
             fis.close();
             ois.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return list;
+    }
+    public static void addObject() {
+         List<Product> list = read();
+         Product product = add();
+         list.add(product);
+         write(stringPath,list);
     }
 }

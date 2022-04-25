@@ -1,5 +1,7 @@
 package case_study.services.Interface;
 
+import case_study.models.person.Employee;
+
 public interface Service {
     public void display();
 
@@ -8,4 +10,6 @@ public interface Service {
     public void edit();
 
     public void delete();
+
+    public Employee isExisted(int id);
 }
