@@ -1,4 +1,4 @@
-package _17_io_binary_file_serialization.exercise.ManegeProduct;
+package _17_io_binary_file_serialization.exercise.manege_product;
 
 import java.io.*;
 import java.util.ArrayList;
