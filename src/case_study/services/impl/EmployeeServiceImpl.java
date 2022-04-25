@@ -18,8 +18,8 @@ public class EmployeeServiceImpl implements EmployerService {
                                         true,
                                         "hieu@gmail",
                                         "0932",
-                                        "1",
-                                        "quanly",
+                                        "99",
+                                        "manager",
                                         9999);
        employeeList.add(employee);
     }
