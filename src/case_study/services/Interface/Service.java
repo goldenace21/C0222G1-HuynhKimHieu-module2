@@ -11,5 +11,5 @@ public interface Service {
 
     public void delete();
 
-    public Employee isExisted(int id);
+    public Employee isExisted(String id);
 }

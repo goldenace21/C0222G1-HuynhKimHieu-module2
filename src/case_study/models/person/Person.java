@@ -3,7 +3,7 @@ package case_study.models.person;
 import java.security.PrivateKey;
 
 public abstract class Person {
-    private int idCard;
+    private String idCard;
     private String name;
     private int age;
     private boolean sex;
@@ -13,7 +13,7 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(int idCard, String name, int age, boolean sex, String email, String phoneNumber) {
+    public Person(String idCard, String name, int age, boolean sex, String email, String phoneNumber) {
         this.idCard = idCard;
         this.name = name;
         this.age = age;
@@ -22,11 +22,11 @@ public abstract class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getIdCard() {
+    public String getIdCard() {
         return idCard;
     }
 
-    public void setIdCard(int idCard) {
+    public void setIdCard(String idCard) {
         this.idCard = idCard;
     }
 

@@ -1,29 +1,29 @@
 package case_study.models.person;
 
 public class Employee extends Person {
+    private String idEmployee;
     private String level;
     private String position;
     private int salary;
 
-    public Employee(String level, String position, int salary) {
+    public Employee() {
+
+    }
+
+    public Employee(String idCard, String name, int age, boolean sex, String email, String phoneNumber, String idEmployee, String level, String position, int salary) {
+        super(idCard, name, age, sex, email, phoneNumber);
+        this.idEmployee = idEmployee;
         this.level = level;
         this.position = position;
         this.salary = salary;
     }
 
-    public Employee( int idCard,
-                     String name,
-                     int age,
-                     boolean sex,
-                     String email,
-                     String phoneNumber,
-                     String level,
-                     String position,
-                     int salary) {
-        super(idCard,name, age,sex, email, phoneNumber);
-        this.level = level;
-        this.position = position;
-        this.salary = salary;
+    public String getIdEmployee() {
+        return idEmployee;
+    }
+
+    public void setIdEmployee(String idEmployee) {
+        this.idEmployee = idEmployee;
     }
 
     public String getLevel() {
@@ -48,14 +48,5 @@ public class Employee extends Person {
 
     public void setSalary(int salary) {
         this.salary = salary;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" + super.toString() +
-                "level='" + level + '\'' +
-                ", position='" + position + '\'' +
-                ", salary=" + salary +
-                '}';
     }
 }

@@ -3,6 +3,8 @@ package case_study.services.impl;
 import case_study.models.person.Employee;
 import case_study.services.Interface.FacilityService;
 
+import java.util.List;
+
 public class FacilityServiceImpl implements FacilityService {
     @Override
     public void display() {
@@ -25,7 +27,7 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     @Override
-    public Employee isExisted(int id) {
+    public Employee isExisted(String id) {
         return null;
     }
 }

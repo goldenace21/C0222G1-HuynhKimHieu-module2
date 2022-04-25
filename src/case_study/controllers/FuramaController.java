@@ -57,8 +57,7 @@ public class FuramaController {
                     + "\n" + "║ 1. Display list employee           ║"
                     + "\n" + "║ 2. Add new employee                ║"
                     + "\n" + "║ 3. Edit employee                   ║"
-                    + "\n" + "║ 4. Remove employee                 ║"
-                    + "\n" + "║ 6. Return main menu                ║"
+                    + "\n" + "║ 4. Return main menu                ║"
                     + "\n" + "╚════════════════════════════════════╝"
                     + "\n" + " Enter your choose: ");
             switch (Integer.parseInt(scanner.nextLine())) {
@@ -72,9 +71,6 @@ public class FuramaController {
                     employeeService.edit();
                     break;
                 case 4:
-                    employeeService.delete();
-                    break;
-                case 5:
                     check = false;
 
             }
@@ -83,10 +79,15 @@ public class FuramaController {
 
     public static void displayCustomerManagement() {
         while (check) {
-            System.out.println("1. Display list customers");
-            System.out.println("2. Add new customer");
-            System.out.println("3. Edit customer");
-            System.out.println("4. Return main menu");
+            System.out.print("╔════════════════════════════════════╗"
+                    + "\n" + "║         CUSTOMER MANAGEMENT        ║"
+                    + "\n" + "╠════════════════════════════════════╣"
+                    + "\n" + "║ 1. Display list customers          ║"
+                    + "\n" + "║ 2. Add new customers               ║"
+                    + "\n" + "║ 3. Edit customers                  ║"
+                    + "\n" + "║ 4. Return main menu                ║"
+                    + "\n" + "╚════════════════════════════════════╝"
+                    + "\n" + " Enter your choose: ");
             switch (Integer.parseInt(scanner.nextLine())) {
                 case 1:
 

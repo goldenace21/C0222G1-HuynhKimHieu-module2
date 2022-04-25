@@ -12,15 +12,8 @@ public class EmployeeServiceImpl implements EmployerService {
     public static Scanner scanner = new Scanner(System.in);
 
     static {
-       Employee employee = new Employee(1,
-                                        "hieu",
-                                        12,
-                                        true,
-                                        "hieu@gmail",
-                                        "0932",
-                                        "99",
-                                        "manager",
-                                        9999);
+       Employee employee = new Employee("243","hieu",12,true,"hieu@gmail",
+                                        "0932","1242","99","manager", 9999);
        employeeList.add(employee);
     }
 
@@ -37,11 +30,11 @@ public class EmployeeServiceImpl implements EmployerService {
 
     @Override
     public void addNew() {
-        int idCard, age, salary;
-        String name, email, phoneNumber, level, position;
+        int  age, salary;
+        String idCard, name, email, phoneNumber, level, position, idEmploy;
         boolean sex;
 
-        System.out.println("Enter idCard: "); idCard = Integer.parseInt(scanner.nextLine());
+        System.out.println("Enter idCard: "); idCard = scanner.nextLine();
         if (isExisted(idCard) != null) {
             System.err.println("The employee already existed!");
             return;
@@ -52,11 +45,12 @@ public class EmployeeServiceImpl implements EmployerService {
         System.out.println("Enter sex: 1-male 2-female"); sex = (Integer.parseInt(scanner.nextLine())) == 1;
         System.out.println("Enter email: "); email = scanner.nextLine();
         System.out.println("Enter phone number: "); phoneNumber = scanner.nextLine();
+        System.out.println("Enter id employee: "); idEmploy = scanner.nextLine();
         System.out.println("Enter level: "); level = scanner.nextLine();
         System.out.println("Enter position: "); position = scanner.nextLine();
         System.out.println("Enter salary: "); salary = Integer.parseInt(scanner.nextLine());
 
-        Employee employee = new Employee(idCard, name, age, sex, email, phoneNumber, level, position, salary);
+        Employee employee = new Employee(idCard, name, age, sex, email, phoneNumber,idEmploy, level, position, salary);
         employeeList.add(employee);
         display();
     }
@@ -66,10 +60,10 @@ public class EmployeeServiceImpl implements EmployerService {
         if (employeeList.isEmpty()) {
             System.err.println("Empty list!");
         } else {
-            int idCard;
+            String idCard;
             Employee tempEmployee;
 
-            System.out.print("Enter idCard: "); idCard = Integer.parseInt(scanner.nextLine());
+            System.out.print("Enter idCard: "); idCard = scanner.nextLine();
             tempEmployee = isExisted(idCard);
 
             if (tempEmployee == null) {
@@ -82,6 +76,7 @@ public class EmployeeServiceImpl implements EmployerService {
             System.out.println("Enter sex: 1-male 2-female"); tempEmployee.setSex((Integer.parseInt(scanner.nextLine())) == 1);
             System.out.println("Enter email: "); tempEmployee.setEmail(scanner.nextLine());
             System.out.println("Enter phone number: "); tempEmployee.setPhoneNumber(scanner.nextLine());
+            System.out.println("Enter id employee: "); tempEmployee.setIdEmployee(scanner.nextLine());;
             System.out.println("Enter level: "); tempEmployee.setLevel(scanner.nextLine());
             System.out.println("Enter position: "); tempEmployee.setPosition(scanner.nextLine());
             System.out.println("Enter salary: "); tempEmployee.setSalary(Integer.parseInt(scanner.nextLine()));
@@ -92,28 +87,14 @@ public class EmployeeServiceImpl implements EmployerService {
 
     @Override
     public void delete() {
-        if (employeeList.isEmpty()) {
-            System.err.println("Empty list!");
-        } else {
-            Employee tempEmployee;
-
-            System.out.print("Enter idCard: ");
-            tempEmployee = isExisted(Integer.parseInt(scanner.nextLine()));
-
-            if (tempEmployee == null) {
-                System.err.println("The employee isn't existed!");
-                return;
-            }
-
-            employeeList.remove(tempEmployee);
-            display();
-        }
     }
 
     @Override
-    public Employee isExisted(int id) {
+    public Employee isExisted(String id) {
         for (Employee employee : employeeList) {
-            if (employee.getIdCard() == id) return employee;
+            if (employee.getIdCard().equals(id)) {
+                return employee;
+            }
         }
         return null;
     }
