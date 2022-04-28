@@ -1,4 +1,7 @@
 package case_study.services.Interface;
 
-public interface BookingService extends Service {
+public interface BookingService {
+    void addBooking();
+
+    void displayBooking();
 }

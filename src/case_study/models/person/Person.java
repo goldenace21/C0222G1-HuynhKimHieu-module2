@@ -5,19 +5,19 @@ import java.security.PrivateKey;
 public abstract class Person {
     private String idCard;
     private String name;
-    private int age;
     private boolean sex;
+    private String dateOfBirth;
     private String email;
     private String phoneNumber;
 
     public Person() {
     }
 
-    public Person(String idCard, String name, int age, boolean sex, String email, String phoneNumber) {
+    public Person(String idCard, String name, boolean sex, String dateOfBirth, String email, String phoneNumber) {
         this.idCard = idCard;
         this.name = name;
-        this.age = age;
         this.sex = sex;
+        this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
@@ -38,20 +38,20 @@ public abstract class Person {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public boolean isSex() {
         return sex;
     }
 
-    public void setSex(boolean gender) {
-        this.sex = gender;
+    public void setSex(boolean sex) {
+        this.sex = sex;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getEmail() {
@@ -73,10 +73,10 @@ public abstract class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "idCard=" + idCard +
+                "idCard='" + idCard + '\'' +
                 ", name='" + name + '\'' +
-                ", age=" + age +
-                ", gender=" + sex +
+                ", sex=" + sex +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 '}';

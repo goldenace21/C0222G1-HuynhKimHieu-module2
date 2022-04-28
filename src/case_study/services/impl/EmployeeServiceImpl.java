@@ -2,19 +2,20 @@ package case_study.services.impl;
 
 import case_study.models.person.Employee;
 import case_study.services.Interface.EmployerService;
-
+import case_study.utils.FacilityRegex;
+import case_study.utils.RegexData;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
+import static case_study.controllers.FuramaController.scanner;
 
 public class EmployeeServiceImpl implements EmployerService {
     public static List<Employee> employeeList = new ArrayList<>();
-    public static Scanner scanner = new Scanner(System.in);
-
     static {
-       Employee employee = new Employee("243","hieu",12,true,"hieu@gmail",
-                                        "0932","1242","99","manager", 9999);
-       employeeList.add(employee);
+        employeeList.add(new Employee( "123", "hieu", true,
+                                        "12/23/2001", "hieu@1",
+                                        "1234", "99", "manager",
+                                        99.99));
     }
 
     @Override
@@ -30,8 +31,8 @@ public class EmployeeServiceImpl implements EmployerService {
 
     @Override
     public void addNew() {
-        int  age, salary;
-        String idCard, name, email, phoneNumber, level, position, idEmploy;
+        double salary;
+        String idCard, name, email, phoneNumber, level, position, dateOfBirth;
         boolean sex;
 
         System.out.println("Enter idCard: "); idCard = scanner.nextLine();
@@ -41,17 +42,16 @@ public class EmployeeServiceImpl implements EmployerService {
         }
 
         System.out.println("Enter name: "); name = scanner.nextLine();
-        System.out.println("Enter age: "); age = Integer.parseInt(scanner.nextLine());
+        System.out.println("Enter date of birth: "); dateOfBirth =
+        RegexData.regexAge(scanner.nextLine(),FacilityRegex.REGEX_DATEOFBIRTH);
         System.out.println("Enter sex: 1-male 2-female"); sex = (Integer.parseInt(scanner.nextLine())) == 1;
         System.out.println("Enter email: "); email = scanner.nextLine();
         System.out.println("Enter phone number: "); phoneNumber = scanner.nextLine();
-        System.out.println("Enter id employee: "); idEmploy = scanner.nextLine();
         System.out.println("Enter level: "); level = scanner.nextLine();
         System.out.println("Enter position: "); position = scanner.nextLine();
-        System.out.println("Enter salary: "); salary = Integer.parseInt(scanner.nextLine());
+        System.out.println("Enter salary: "); salary = scanner.nextDouble();
 
-        Employee employee = new Employee(idCard, name, age, sex, email, phoneNumber,idEmploy, level, position, salary);
-        employeeList.add(employee);
+        employeeList.add(new Employee(idCard,name,sex,dateOfBirth,email,phoneNumber,level,position,salary));
         display();
     }
 
@@ -60,11 +60,10 @@ public class EmployeeServiceImpl implements EmployerService {
         if (employeeList.isEmpty()) {
             System.err.println("Empty list!");
         } else {
-            String idCard;
             Employee tempEmployee;
 
-            System.out.print("Enter idCard: "); idCard = scanner.nextLine();
-            tempEmployee = isExisted(idCard);
+            System.out.print("Enter idCard: ");
+            tempEmployee = isExisted(scanner.nextLine());
 
             if (tempEmployee == null) {
                 System.err.println("The employee isn't existed!");
@@ -72,15 +71,14 @@ public class EmployeeServiceImpl implements EmployerService {
             }
 
             System.out.println("Enter name: "); tempEmployee.setName(scanner.nextLine());
-            System.out.println("Enter age: "); tempEmployee.setAge(Integer.parseInt(scanner.nextLine()));
+            System.out.println("Enter age: "); tempEmployee.setDateOfBirth(
+            RegexData.regexAge(scanner.nextLine(),FacilityRegex.REGEX_DATEOFBIRTH));
             System.out.println("Enter sex: 1-male 2-female"); tempEmployee.setSex((Integer.parseInt(scanner.nextLine())) == 1);
             System.out.println("Enter email: "); tempEmployee.setEmail(scanner.nextLine());
             System.out.println("Enter phone number: "); tempEmployee.setPhoneNumber(scanner.nextLine());
-            System.out.println("Enter id employee: "); tempEmployee.setIdEmployee(scanner.nextLine());;
             System.out.println("Enter level: "); tempEmployee.setLevel(scanner.nextLine());
             System.out.println("Enter position: "); tempEmployee.setPosition(scanner.nextLine());
-            System.out.println("Enter salary: "); tempEmployee.setSalary(Integer.parseInt(scanner.nextLine()));
-
+            System.out.println("Enter salary: "); tempEmployee.setSalary(scanner.nextDouble());
             display();
         }
     }
