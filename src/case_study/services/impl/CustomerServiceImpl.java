@@ -1,7 +1,7 @@
 package case_study.services.impl;
 
 import case_study.models.person.Customer;
-import case_study.services.Interface.CustomerService;
+import case_study.services.interfacee.CustomerService;
 import case_study.utils.FacilityRegex;
 import case_study.utils.RegexData;
 import java.util.LinkedList;
@@ -10,11 +10,18 @@ import java.util.List;
 import static case_study.controllers.FuramaController.scanner;
 
 public class CustomerServiceImpl implements CustomerService {
+
     public static List<Customer> customerList = new LinkedList<>();
+
     static {
-        customerList.add(new Customer("173", "hung", true,
-                                    "12/23/2001", "hieu@1",
-                                    "1234", "Platinium"));
+        customerList.add(new Customer("173", "hung", true, "12/23/2001",
+                "hieu@1", "1234", "Platinium", false));
+
+        customerList.add(new Customer("453", "hieu", true, "12/12/2001",
+                "hieu@1", "8574", "Diamond", false));
+
+        customerList.add(new Customer("756", "linh", false, "12/11/2001",
+                "linh@1", "2344", "Vip", false));
     }
 
     @Override
@@ -31,7 +38,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void addNew() {
         String idCard, name, email, phoneNumber, dateOfBirth, type;
-        boolean sex;
+        boolean sex, statusBooking;
 
         System.out.println("Enter idCard: "); idCard = scanner.nextLine();
         if (isExisted(idCard) != null) {
@@ -46,8 +53,9 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.println("Enter email: "); email = scanner.nextLine();
         System.out.println("Enter phone number: "); phoneNumber = scanner.nextLine();
         System.out.println("Enter type: "); type = scanner.nextLine();
+        statusBooking = false;
 
-        customerList.add(new Customer(idCard, name, sex, dateOfBirth, email, phoneNumber, type));
+        customerList.add(new Customer(idCard, name, sex, dateOfBirth, email, phoneNumber, type, statusBooking));
         display();
     }
 
@@ -91,5 +99,4 @@ public class CustomerServiceImpl implements CustomerService {
         }
         return null;
     }
-
 }

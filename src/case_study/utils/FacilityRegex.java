@@ -14,6 +14,8 @@ public class FacilityRegex {
     public static final String REGEX_FLOOR = "^[1-9]|([1-9][0-9])$";
     public static final String REGEX_FREE_SERVICE = "^(service)$";
     public static final String REGEX_DATEOFBIRTH = "^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$";
+    public static final String REGEX_PHONENUMBER = "^(84|0[3|5|7|8|9])+([0-9]{8})$";
+    public static final String REGEX_EMAILGG = "^[a-z0-9]+(?!.*(?:\\+{2,}|\\-{2,}|\\.{2,}))(?:[\\.+\\-]{0,1}[a-z0-9])*@gmail\\.com$";
 
     public String enterIdVila() {
         System.out.println("Enter id villa: ");

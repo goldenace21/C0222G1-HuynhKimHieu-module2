@@ -4,26 +4,31 @@ import case_study.models.facility.Facility;
 import case_study.models.facility.House;
 import case_study.models.facility.Room;
 import case_study.models.facility.Villa;
-import case_study.services.Interface.FacilityService;
+import case_study.services.interfacee.FacilityService;
 import case_study.utils.FacilityRegex;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class FacilityServiceImpl implements FacilityService {
 
-    private static Map<Facility,Integer> facilityIntegerMap = new LinkedHashMap<>();
+    public static Map<Facility,Integer> facilityIntegerMap = new LinkedHashMap<>();
     public static FacilityRegex facilityRegex = new FacilityRegex();
 
     static {
-        facilityIntegerMap.put(new Villa("SVVL-2345","Vila",65.6,99.6,"10",
-                                         "day","vip",45.0,"4"),0);
+        facilityIntegerMap.put(new Villa("SVVL-2345", "Vila", 65.6, 99.6, "10",
+                                         "day", "vip", 45.0, "4"), 0);
 
-        facilityIntegerMap.put(new House("SVHO-5334","House",76,45,"16",
-                                         "hour","vip","5"),5);
+        facilityIntegerMap.put(new House("SVHO-5334", "House", 76, 45, "16",
+                                        "hour", "vip", "5"), 5);
 
-        facilityIntegerMap.put(new Room("SVRO-5432","Room",54,12,"15",
-                                        "year","service"),0);
+        facilityIntegerMap.put(new Room("SVRO-5432", "Room", 54, 12, "15",
+                                        "year", "service"), 0);
+
+        facilityIntegerMap.put(new Villa("SVVL-7463", "Vila", 86.5, 85.6, "12",
+                                         "hour", "standard", 65.5, "8"), 0);
+
+        facilityIntegerMap.put(new Villa("SVVL-7346", "Hilla", 46.5, 99.4, "19",
+                                         "day", "vip", 76.4, "1"), 0);
     }
 
     @Override
@@ -69,7 +74,6 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.println("successfully added new");
     }
 
-
     @Override
     public void addNewHouse() {
         String id,name,styleRental,rentalPeopleMax,roomStandard,floor;
@@ -91,7 +95,6 @@ public class FacilityServiceImpl implements FacilityService {
         facilityIntegerMap.put(new House(id,name,areaUse,price,rentalPeopleMax,styleRental,roomStandard,floor),0);
         System.out.println("successfully added new");
     }
-
 
     @Override
     public void addNewRoom() {

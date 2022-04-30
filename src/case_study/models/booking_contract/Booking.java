@@ -68,8 +68,8 @@ public class Booking {
                 "idBooking='" + idBooking + '\'' +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
-                ", customer=" + customer +
-                ", facility=" + facility +
+                ", idService='" + facility.getId() + '\'' +
+                ", idCustomer='" + customer.getIdCard() + '\'' +
                 '}';
     }
 }

@@ -1,23 +1,19 @@
 package case_study.services.impl;
 
 import case_study.models.person.Employee;
-import case_study.services.Interface.EmployerService;
+import case_study.services.interfacee.EmployeeService;
 import case_study.utils.FacilityRegex;
 import case_study.utils.RegexData;
 import java.util.ArrayList;
 import java.util.List;
-
 import static case_study.controllers.FuramaController.scanner;
 
-public class EmployeeServiceImpl implements EmployerService {
+public class EmployeeServiceImpl implements EmployeeService {
     public static List<Employee> employeeList = new ArrayList<>();
     static {
-        employeeList.add(new Employee( "123", "hieu", true,
-                                        "12/23/2001", "hieu@1",
-                                        "1234", "99", "manager",
-                                        99.99));
+        employeeList.add(new Employee("1","hieu",true,"20/11/2001","hieu@",
+                                      "0932","manager","position",20.0));
     }
-
     @Override
     public void display() {
         if (employeeList.isEmpty()) {
@@ -49,7 +45,7 @@ public class EmployeeServiceImpl implements EmployerService {
         System.out.println("Enter phone number: "); phoneNumber = scanner.nextLine();
         System.out.println("Enter level: "); level = scanner.nextLine();
         System.out.println("Enter position: "); position = scanner.nextLine();
-        System.out.println("Enter salary: "); salary = scanner.nextDouble();
+        System.out.println("Enter salary: "); salary = Double.parseDouble(scanner.nextLine());
 
         employeeList.add(new Employee(idCard,name,sex,dateOfBirth,email,phoneNumber,level,position,salary));
         display();

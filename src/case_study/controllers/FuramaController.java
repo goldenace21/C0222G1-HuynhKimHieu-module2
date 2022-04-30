@@ -1,25 +1,25 @@
 package case_study.controllers;
 
+import case_study.services.impl.BookingServiceImpl;
 import case_study.services.impl.CustomerServiceImpl;
 import case_study.services.impl.EmployeeServiceImpl;
 import case_study.services.impl.FacilityServiceImpl;
-import case_study.utils.ChooseException;
-
+import case_study.utils.ChooseCheck;
 import java.util.Scanner;
 
 public class FuramaController {
     public static Scanner scanner = new Scanner(System.in);
-    public static EmployeeServiceImpl employeeService;
-    public static CustomerServiceImpl customerService;
-    public static FacilityServiceImpl facilityService;
-    public static ChooseException choose;
+    public static EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
+    public static CustomerServiceImpl customerService = new CustomerServiceImpl();
+    public static FacilityServiceImpl facilityService = new FacilityServiceImpl();
+    public static BookingServiceImpl bookingService = new BookingServiceImpl();
+    public static ChooseCheck choose = new ChooseCheck();
 
     public static void main(String[] args) {
         displayMainMenu();
     }
 
     public static void displayMainMenu() {
-        choose = new ChooseException();
         while (true) {
             System.out.println("╔════════════════════════════════════╗"
                       + "\n" + "║         MANAGEMENT PROGRAM         ║"
@@ -31,7 +31,7 @@ public class FuramaController {
                       + "\n" + "║ 5. Promotion Management            ║"
                       + "\n" + "║ 6. Exit                            ║"
                       + "\n" + "╚════════════════════════════════════╝");
-            switch (choose.checkChoose()) {
+            switch (choose.chooseCheck(6)) {
                 case 1:
                     displayEmployeeManagement();
                     break;
@@ -49,15 +49,11 @@ public class FuramaController {
                     break;
                 case 6:
                     return;
-                default:
-                    System.err.println("Enter number 1-6");
-                    break;
             }
         }
     }
 
     public static void displayEmployeeManagement() {
-        employeeService = new EmployeeServiceImpl();
         while (true) {
             System.out.println("╔════════════════════════════════════╗"
                       + "\n" + "║         EMPLOYEE MANAGEMENT        ║"
@@ -67,7 +63,7 @@ public class FuramaController {
                       + "\n" + "║ 3. Edit employee                   ║"
                       + "\n" + "║ 4. Return main menu                ║"
                       + "\n" + "╚════════════════════════════════════╝");
-            switch (choose.checkChoose()) {
+            switch (choose.chooseCheck(4)) {
                 case 1:
                     employeeService.display();
                     break;
@@ -79,15 +75,11 @@ public class FuramaController {
                     break;
                 case 4:
                     return;
-                default:
-                    System.err.println("Enter number 1-4");
-                    break;
             }
         }
     }
 
     public static void displayCustomerManagement() {
-        customerService = new CustomerServiceImpl();
         while (true) {
             System.out.println("╔════════════════════════════════════╗"
                       + "\n" + "║         CUSTOMER MANAGEMENT        ║"
@@ -97,7 +89,7 @@ public class FuramaController {
                       + "\n" + "║ 3. Edit customers                  ║"
                       + "\n" + "║ 4. Return main menu                ║"
                       + "\n" + "╚════════════════════════════════════╝");
-            switch (choose.checkChoose()) {
+            switch (choose.chooseCheck(4)) {
                 case 1:
                     customerService.display();
                     break;
@@ -109,15 +101,11 @@ public class FuramaController {
                     break;
                 case 4:
                     return;
-                default:
-                    System.err.println("Enter number 1-4");
-                    break;
             }
         }
     }
 
     public static void displayFacilityManagement() {
-        facilityService = new FacilityServiceImpl();
         while (true) {
             System.out.println("╔══════════════════════════════════════╗"
                       + "\n" + "║         FACILITY MANAGEMENT          ║"
@@ -127,7 +115,7 @@ public class FuramaController {
                       + "\n" + "║ 3. Display list facility maintenance ║"
                       + "\n" + "║ 4. Return main menu                  ║"
                       + "\n" + "╚══════════════════════════════════════╝");
-            switch (choose.checkChoose()) {
+            switch (choose.chooseCheck(4)) {
                 case 1:
                     facilityService.display();
                     break;
@@ -139,9 +127,6 @@ public class FuramaController {
                     break;
                 case 4:
                     return;
-                default:
-                    System.err.println("Enter number 1-4");
-                    break;
             }
         }
     }
@@ -156,7 +141,7 @@ public class FuramaController {
                       + "\n" + "║ 3. Add new room                    ║"
                       + "\n" + "║ 4. Return facility management      ║"
                       + "\n" + "╚════════════════════════════════════╝");
-            switch (choose.checkChoose()) {
+            switch (choose.chooseCheck(4)) {
                 case 1:
                     facilityService.addNewVilla();
                     break;
@@ -168,9 +153,6 @@ public class FuramaController {
                     break;
                 case 4:
                     return;
-                default:
-                    System.err.println("Enter number 1-4");
-                    break;
             }
         }
     }
@@ -187,11 +169,16 @@ public class FuramaController {
                       + "\n" + "║ 5. Edit contracts                  ║"
                       + "\n" + "║ 6. Return main menu                ║"
                       + "\n" + "╚════════════════════════════════════╝");
-            switch (choose.checkChoose()) {
+            switch (choose.chooseCheck(6)) {
                 case 1:
-                default:
-                    System.err.println("Enter number 1-6");
+                    bookingService.addBooking();
                     break;
+                case 2:
+                    bookingService.displayBooking();
+                    break;
+                case 3:
+                case 6:
+                    return;
             }
         }
     }
@@ -205,11 +192,8 @@ public class FuramaController {
                       + "\n" + "║ 2. Display list customers get voucher ║"
                       + "\n" + "║ 3. Return main menu                   ║"
                       + "\n" + "╚═══════════════════════════════════════╝");
-            switch (choose.checkChoose()) {
+            switch (choose.chooseCheck(3)) {
                 case 1:
-                default:
-                    System.err.println("Enter number 1-3");
-                    break;
 
             }
         }
