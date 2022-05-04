@@ -20,8 +20,8 @@ public class ReadFile {
         for (Nation item : nationList) {
             System.out.println(item.toString());
         }
-
     }
+
     public static List<String[]> readFile(String path) {
         List<String []> listString = new ArrayList<>();
         try {

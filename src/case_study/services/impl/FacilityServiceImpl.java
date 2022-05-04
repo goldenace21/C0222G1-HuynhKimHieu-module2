@@ -11,32 +11,32 @@ import java.util.Map;
 
 public class FacilityServiceImpl implements FacilityService {
 
-    public static Map<Facility,Integer> facilityIntegerMap = new LinkedHashMap<>();
+    public static Map<Facility,Integer> facilityMap = new LinkedHashMap<>();
     public static FacilityRegex facilityRegex = new FacilityRegex();
 
     static {
-        facilityIntegerMap.put(new Villa("SVVL-2345", "Vila", 65.6, 99.6, "10",
+        facilityMap.put(new Villa("SVVL-2345", "Vila", 65.6, 99.6, "10",
                                          "day", "vip", 45.0, "4"), 0);
 
-        facilityIntegerMap.put(new House("SVHO-5334", "House", 76, 45, "16",
+        facilityMap.put(new House("SVHO-5334", "House", 76, 45, "16",
                                         "hour", "vip", "5"), 5);
 
-        facilityIntegerMap.put(new Room("SVRO-5432", "Room", 54, 12, "15",
+        facilityMap.put(new Room("SVRO-5432", "Room", 54, 12, "15",
                                         "year", "service"), 0);
 
-        facilityIntegerMap.put(new Villa("SVVL-7463", "Vila", 86.5, 85.6, "12",
+        facilityMap.put(new Villa("SVVL-7463", "Vila", 86.5, 85.6, "12",
                                          "hour", "standard", 65.5, "8"), 0);
 
-        facilityIntegerMap.put(new Villa("SVVL-7346", "Hilla", 46.5, 99.4, "19",
+        facilityMap.put(new Villa("SVVL-7346", "Hilla", 46.5, 99.4, "19",
                                          "day", "vip", 76.4, "1"), 0);
     }
 
     @Override
     public void display() {
-        if (facilityIntegerMap.isEmpty()) {
+        if (facilityMap.isEmpty()) {
             System.err.println("Empty list!");
         } else {
-            for (Map.Entry<Facility, Integer> element : facilityIntegerMap.entrySet()) {
+            for (Map.Entry<Facility, Integer> element : facilityMap.entrySet()) {
                 System.out.println("Service " + element.getKey() + " times " + element.getValue());
             }
         }
@@ -44,7 +44,7 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void displayMaintain() {
-        for (Map.Entry<Facility, Integer> element : facilityIntegerMap.entrySet()) {
+        for (Map.Entry<Facility, Integer> element : facilityMap.entrySet()) {
             if (element.getValue() >= 5)
             System.out.println("Service maintain " + element.getKey() + " times " + element.getValue());
         }
@@ -70,7 +70,7 @@ public class FacilityServiceImpl implements FacilityService {
         poolArea = facilityRegex.enterArea();
         floor = facilityRegex.enterFloor();
 
-        facilityIntegerMap.put(new Villa(id,name,areaUse,price,rentalPeople,styleRental,roomStandard,poolArea,floor),0);
+        facilityMap.put(new Villa(id,name,areaUse,price,rentalPeople,styleRental,roomStandard,poolArea,floor),0);
         System.out.println("successfully added new");
     }
 
@@ -92,7 +92,7 @@ public class FacilityServiceImpl implements FacilityService {
         styleRental = facilityRegex.enterStyleRental();
         roomStandard = facilityRegex.enterRoomStandard();
         floor = facilityRegex.enterFloor();
-        facilityIntegerMap.put(new House(id,name,areaUse,price,rentalPeopleMax,styleRental,roomStandard,floor),0);
+        facilityMap.put(new House(id,name,areaUse,price,rentalPeopleMax,styleRental,roomStandard,floor),0);
         System.out.println("successfully added new");
     }
 
@@ -113,13 +113,13 @@ public class FacilityServiceImpl implements FacilityService {
         rentalPeopleMax = facilityRegex.enterRentalPeople();
         styleRental = facilityRegex.enterStyleRental();
         freeService = facilityRegex.enterFreeService();
-        facilityIntegerMap.put(new Room(id,name,areaUse,price,rentalPeopleMax,styleRental,freeService),0);
+        facilityMap.put(new Room(id,name,areaUse,price,rentalPeopleMax,styleRental,freeService),0);
         System.out.println("successfully added new");
     }
 
     @Override
     public Object isExisted(String id) {
-        for (Map.Entry<Facility, Integer> element : facilityIntegerMap.entrySet()) {
+        for (Map.Entry<Facility, Integer> element : facilityMap.entrySet()) {
             if (element.getKey().getId().equals(id)) {
                 return element;
             }

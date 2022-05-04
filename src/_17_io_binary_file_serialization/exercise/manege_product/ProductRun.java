@@ -102,6 +102,7 @@ public class ProductRun {
         }
         return list;
     }
+
     public static void addObject() {
          List<Product> list = read();
          Product product = add();

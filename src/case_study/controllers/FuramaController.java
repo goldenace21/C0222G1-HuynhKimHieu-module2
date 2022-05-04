@@ -1,9 +1,6 @@
 package case_study.controllers;
 
-import case_study.services.impl.BookingServiceImpl;
-import case_study.services.impl.CustomerServiceImpl;
-import case_study.services.impl.EmployeeServiceImpl;
-import case_study.services.impl.FacilityServiceImpl;
+import case_study.services.impl.*;
 import case_study.utils.ChooseCheck;
 import java.util.Scanner;
 
@@ -13,6 +10,8 @@ public class FuramaController {
     public static CustomerServiceImpl customerService = new CustomerServiceImpl();
     public static FacilityServiceImpl facilityService = new FacilityServiceImpl();
     public static BookingServiceImpl bookingService = new BookingServiceImpl();
+    public static ContractServiceImpl contractService = new ContractServiceImpl();
+    public static PromotionServiceImpl promotionService = new PromotionServiceImpl();
     public static ChooseCheck choose = new ChooseCheck();
 
     public static void main(String[] args) {
@@ -177,6 +176,14 @@ public class FuramaController {
                     bookingService.displayBooking();
                     break;
                 case 3:
+                    contractService.createContract();
+                    break;
+                case 4:
+                    contractService.displayContract();
+                    break;
+                case 5:
+                    contractService.editContract();
+                    break;
                 case 6:
                     return;
             }

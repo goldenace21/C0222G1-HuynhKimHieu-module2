@@ -5,10 +5,12 @@ import case_study.models.facility.Facility;
 import case_study.models.person.Customer;
 import case_study.services.interfacee.BookingService;
 import case_study.utils.BookingComparator;
+import case_study.utils.FacilityRegex;
+import case_study.utils.RegexData;
 import java.util.*;
 import static case_study.controllers.FuramaController.scanner;
 import static case_study.services.impl.CustomerServiceImpl.customerList;
-import static case_study.services.impl.FacilityServiceImpl.facilityIntegerMap;
+import static case_study.services.impl.FacilityServiceImpl.facilityMap;
 
 public class BookingServiceImpl implements BookingService {
 
@@ -20,16 +22,18 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public void addBooking() {
-        String id =  "1";
+        String id;
         if (!bookingSet.isEmpty()) {
-            id = String.valueOf(bookingSet.size());
+            id = String.valueOf(bookingSet.size()+1);
+        } else {
+            id = "1";
         }
         Customer customer = chooseCustomer();
         Facility facility = chooseFacility();
         System.out.println("Enter rental start date: ");
-        String startDate = scanner.nextLine();
+        String startDate = RegexData.regexString(scanner.nextLine(), FacilityRegex.REGEX_DATEOFBIRTH,"error format date");
         System.out.println("Enter rental end date: ");
-        String endDate = scanner.nextLine();
+        String endDate = RegexData.regexString(scanner.nextLine(), FacilityRegex.REGEX_DATEOFBIRTH,"error format date");
 
         Booking booking = new Booking(id,startDate,endDate,customer,facility);
         bookingSet.add(booking);
@@ -38,12 +42,13 @@ public class BookingServiceImpl implements BookingService {
                customer.setStatusBooking(true);
            }
         }
-        for (Map.Entry<Facility, Integer> entry : facilityIntegerMap.entrySet()) {
-            if (facilityIntegerMap.containsKey(facility)) {
-                facilityIntegerMap.put(facility,entry.getValue()+1);
+        for (Map.Entry<Facility, Integer> entry : facilityMap.entrySet()) {
+            if (facilityMap.containsKey(facility)) {
+                facilityMap.put(facility,entry.getValue()+1);
             }
         }
         System.out.println("booking successfully!");
+        displayBooking();
     }
 
     @Override
@@ -76,7 +81,7 @@ public class BookingServiceImpl implements BookingService {
 
     public static Facility chooseFacility() {
         System.out.println("Service list: ");
-        for (Map.Entry<Facility, Integer> entry : facilityIntegerMap.entrySet()) {
+        for (Map.Entry<Facility, Integer> entry : facilityMap.entrySet()) {
             System.out.println(entry.getKey().toString());
         }
         while (true) {
@@ -91,7 +96,7 @@ public class BookingServiceImpl implements BookingService {
     }
 
     public static Facility isExistedFacility(String id) {
-        for (Map.Entry<Facility,Integer> entry : facilityIntegerMap.entrySet()) {
+        for (Map.Entry<Facility,Integer> entry : facilityMap.entrySet()) {
             if (id.equals(entry.getKey().getId())) {
                 return entry.getKey();
             }

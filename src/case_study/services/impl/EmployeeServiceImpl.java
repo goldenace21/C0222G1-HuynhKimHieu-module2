@@ -67,14 +67,14 @@ public class EmployeeServiceImpl implements EmployeeService {
             }
 
             System.out.println("Enter name: "); tempEmployee.setName(scanner.nextLine());
-            System.out.println("Enter age: "); tempEmployee.setDateOfBirth(
-            RegexData.regexAge(scanner.nextLine(),FacilityRegex.REGEX_DATEOFBIRTH));
+            System.out.println("Enter age: "); tempEmployee.setDateOfBirth
+            (RegexData.regexAge(scanner.nextLine(),FacilityRegex.REGEX_DATEOFBIRTH));
             System.out.println("Enter sex: 1-male 2-female"); tempEmployee.setSex((Integer.parseInt(scanner.nextLine())) == 1);
             System.out.println("Enter email: "); tempEmployee.setEmail(scanner.nextLine());
             System.out.println("Enter phone number: "); tempEmployee.setPhoneNumber(scanner.nextLine());
             System.out.println("Enter level: "); tempEmployee.setLevel(scanner.nextLine());
             System.out.println("Enter position: "); tempEmployee.setPosition(scanner.nextLine());
-            System.out.println("Enter salary: "); tempEmployee.setSalary(scanner.nextDouble());
+            System.out.println("Enter salary: "); tempEmployee.setSalary(Double.parseDouble(scanner.nextLine()));
             display();
         }
     }
