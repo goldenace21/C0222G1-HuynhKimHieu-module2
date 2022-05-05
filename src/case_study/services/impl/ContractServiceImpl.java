@@ -5,7 +5,6 @@ import case_study.models.booking_contract.Contract;
 import case_study.models.person.Customer;
 import case_study.services.interfacee.ContractService;
 import java.util.*;
-
 import static case_study.controllers.FuramaController.scanner;
 
 public class ContractServiceImpl implements ContractService {

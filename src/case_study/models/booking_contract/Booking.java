@@ -64,12 +64,6 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Booking{" +
-                "idBooking='" + idBooking + '\'' +
-                ", startDate='" + startDate + '\'' +
-                ", endDate='" + endDate + '\'' +
-                ", idService='" + facility.getId() + '\'' +
-                ", idCustomer='" + customer.getIdCard() + '\'' +
-                '}';
+        return idBooking + ',' +startDate+ ',' +endDate+ ',' +facility.getId()+ ',' +customer.getIdCard();
     }
 }

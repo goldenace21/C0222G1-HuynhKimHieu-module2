@@ -9,6 +9,8 @@ import case_study.utils.FacilityRegex;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import static case_study.utils.IOData.*;
+
 public class FacilityServiceImpl implements FacilityService {
 
     public static Map<Facility,Integer> facilityMap = new LinkedHashMap<>();
@@ -29,14 +31,16 @@ public class FacilityServiceImpl implements FacilityService {
 
         facilityMap.put(new Villa("SVVL-7346", "Hilla", 46.5, 99.4, "19",
                                          "day", "vip", 76.4, "1"), 0);
+        writeMapToCSV(facilityMap,FACILITY_PATH);
     }
 
     @Override
     public void display() {
-        if (facilityMap.isEmpty()) {
+        Map<Facility,Integer> mapFacility = ReadCSVToMap(FACILITY_PATH);
+        if (mapFacility.isEmpty()) {
             System.err.println("Empty list!");
         } else {
-            for (Map.Entry<Facility, Integer> element : facilityMap.entrySet()) {
+            for (Map.Entry<Facility, Integer> element : mapFacility.entrySet()) {
                 System.out.println("Service " + element.getKey() + " times " + element.getValue());
             }
         }
@@ -44,7 +48,8 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void displayMaintain() {
-        for (Map.Entry<Facility, Integer> element : facilityMap.entrySet()) {
+        Map<Facility,Integer> mapFacility = ReadCSVToMap(FACILITY_PATH);
+        for (Map.Entry<Facility, Integer> element : mapFacility.entrySet()) {
             if (element.getValue() >= 5)
             System.out.println("Service maintain " + element.getKey() + " times " + element.getValue());
         }
@@ -71,6 +76,7 @@ public class FacilityServiceImpl implements FacilityService {
         floor = facilityRegex.enterFloor();
 
         facilityMap.put(new Villa(id,name,areaUse,price,rentalPeople,styleRental,roomStandard,poolArea,floor),0);
+        writeMapToCSV(facilityMap,FACILITY_PATH);
         System.out.println("successfully added new");
     }
 
@@ -93,6 +99,7 @@ public class FacilityServiceImpl implements FacilityService {
         roomStandard = facilityRegex.enterRoomStandard();
         floor = facilityRegex.enterFloor();
         facilityMap.put(new House(id,name,areaUse,price,rentalPeopleMax,styleRental,roomStandard,floor),0);
+        writeMapToCSV(facilityMap,FACILITY_PATH);
         System.out.println("successfully added new");
     }
 
@@ -114,6 +121,7 @@ public class FacilityServiceImpl implements FacilityService {
         styleRental = facilityRegex.enterStyleRental();
         freeService = facilityRegex.enterFreeService();
         facilityMap.put(new Room(id,name,areaUse,price,rentalPeopleMax,styleRental,freeService),0);
+        writeMapToCSV(facilityMap,FACILITY_PATH);
         System.out.println("successfully added new");
     }
 

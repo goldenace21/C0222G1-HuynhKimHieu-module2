@@ -3,11 +3,14 @@ package case_study.services.impl;
 import case_study.models.person.Customer;
 import case_study.services.interfacee.CustomerService;
 import case_study.utils.FacilityRegex;
+import case_study.utils.IOData;
 import case_study.utils.RegexData;
+
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
 import static case_study.controllers.FuramaController.scanner;
+import static case_study.utils.IOData.*;
 
 public class CustomerServiceImpl implements CustomerService {
 
@@ -22,24 +25,31 @@ public class CustomerServiceImpl implements CustomerService {
 
         customerList.add(new Customer("756", "linh", false, "12/11/2001",
                 "linh@1", "2344", "Vip", false));
+
+        writeToCSV(customerList,CUSTOMER_PATH);
     }
 
     @Override
     public void display() {
-        if (customerList.isEmpty()) {
-            System.err.println("Empty list!");
-        } else {
-            for (Customer customer : customerList) {
-                System.out.println(customer.toString());
-            }
+        List<Customer> listCustomer = readFile();
+        if (listCustomer.isEmpty()) System.err.println("Empty list!");
+        else for (Customer customer : listCustomer) System.out.println(customer.toString());
+    }
+
+    public List<Customer> readFile() {
+        List<Customer> list = new ArrayList<>();
+        List<String[]> stringList = readFilePerson(CUSTOMER_PATH);
+        for (String[] strArr : stringList) {
+            Customer customer = new Customer(strArr);
+            list.add(customer);
         }
+        return list;
     }
 
     @Override
     public void addNew() {
         String idCard, name, email, phoneNumber, dateOfBirth, type;
         boolean sex, statusBooking;
-
         System.out.println("Enter idCard: "); idCard = scanner.nextLine();
         if (isExisted(idCard) != null) {
             System.err.println("The employee already existed!");
@@ -54,8 +64,8 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.println("Enter phone number: "); phoneNumber = scanner.nextLine();
         System.out.println("Enter type: "); type = scanner.nextLine();
         statusBooking = false;
-
         customerList.add(new Customer(idCard, name, sex, dateOfBirth, email, phoneNumber, type, statusBooking));
+        writeToCSV(customerList,CUSTOMER_PATH);
         display();
     }
 
@@ -65,7 +75,6 @@ public class CustomerServiceImpl implements CustomerService {
             System.err.println("Empty list!");
         } else {
             Customer tempCustomer;
-
             System.out.print("Enter idCard: ");
             tempCustomer = isExisted(scanner.nextLine());
 
@@ -81,7 +90,7 @@ public class CustomerServiceImpl implements CustomerService {
             System.out.println("Enter email: "); tempCustomer.setEmail(scanner.nextLine());
             System.out.println("Enter phone number: "); tempCustomer.setPhoneNumber(scanner.nextLine());
             System.out.println("Enter type: "); tempCustomer.setType(scanner.nextLine());
-
+            writeToCSV(customerList,IOData.CUSTOMER_PATH);
             display();
         }
     }

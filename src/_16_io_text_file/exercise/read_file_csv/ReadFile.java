@@ -23,7 +23,7 @@ public class ReadFile {
     }
 
     public static List<String[]> readFile(String path) {
-        List<String []> listString = new ArrayList<>();
+        List<String[]> listString = new ArrayList<>();
         try {
             BufferedReader br = new BufferedReader((new FileReader(path)));
             String line = "";

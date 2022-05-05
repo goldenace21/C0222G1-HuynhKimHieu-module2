@@ -1,28 +1,38 @@
 package case_study.services.impl;
 
+import case_study.models.person.Customer;
 import case_study.models.person.Employee;
 import case_study.services.interfacee.EmployeeService;
 import case_study.utils.FacilityRegex;
+import case_study.utils.IOData;
 import case_study.utils.RegexData;
 import java.util.ArrayList;
 import java.util.List;
 import static case_study.controllers.FuramaController.scanner;
+import static case_study.utils.IOData.*;
 
 public class EmployeeServiceImpl implements EmployeeService {
     public static List<Employee> employeeList = new ArrayList<>();
     static {
         employeeList.add(new Employee("1","hieu",true,"20/11/2001","hieu@",
                                       "0932","manager","position",20.0));
+        writeToCSV(employeeList,EMPLOYEE_PATH);
     }
     @Override
     public void display() {
-        if (employeeList.isEmpty()) {
-            System.err.println("Empty list!");
-        } else {
-            for (Employee employee : employeeList) {
-                System.out.println(employee.toString());
-            }
+        List<Employee> listEmployee = readFile();
+        if (listEmployee.isEmpty()) System.err.println("Empty list!");
+        else for (Employee employee : listEmployee) System.out.println(employee.toString());
+    }
+
+    public List<Employee> readFile() {
+        List<Employee> list = new ArrayList<>();
+        List<String[]> stringList = readFilePerson(EMPLOYEE_PATH);
+        for (String[] strArr : stringList) {
+            Employee employee = new Employee(strArr);
+            list.add(employee);
         }
+        return list;
     }
 
     @Override
@@ -31,10 +41,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         String idCard, name, email, phoneNumber, level, position, dateOfBirth;
         boolean sex;
 
-        System.out.println("Enter idCard: "); idCard = scanner.nextLine();
-        if (isExisted(idCard) != null) {
-            System.err.println("The employee already existed!");
-            return;
+        while (true) {
+            System.out.println("Enter idCard: "); idCard = scanner.nextLine();
+            if (isExisted(idCard) != null) System.err.println("The employee already existed!");
+            else break;
         }
 
         System.out.println("Enter name: "); name = scanner.nextLine();
@@ -48,6 +58,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.println("Enter salary: "); salary = Double.parseDouble(scanner.nextLine());
 
         employeeList.add(new Employee(idCard,name,sex,dateOfBirth,email,phoneNumber,level,position,salary));
+        writeToCSV(employeeList,EMPLOYEE_PATH);
         display();
     }
 
@@ -75,6 +86,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             System.out.println("Enter level: "); tempEmployee.setLevel(scanner.nextLine());
             System.out.println("Enter position: "); tempEmployee.setPosition(scanner.nextLine());
             System.out.println("Enter salary: "); tempEmployee.setSalary(Double.parseDouble(scanner.nextLine()));
+            writeToCSV(employeeList, IOData.CUSTOMER_PATH);
             display();
         }
     }

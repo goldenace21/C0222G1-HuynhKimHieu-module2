@@ -1,13 +1,11 @@
 package exam_01.utils;
 
-import exam_01.models.Movie;
-
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class IOData {
+
+    public final String CUSTOMER_FILE = "";
 //    public static boolean writeToCSV(Movie movie) {
 //        try {
 //            FileWriter fileWriter = new FileWriter("src/exam_01/data/movies.csv", true);
@@ -33,7 +31,16 @@ public class IOData {
 //        return movieList;
 //    }
 
-    public static void writeToCSV(List<Object> list, File file) {
+    public static void writeToCSV(List<Object> list, String file) {
+        try {
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
 
+            for (Object item:list) {
+                bw.write(item.toString() + "\n");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

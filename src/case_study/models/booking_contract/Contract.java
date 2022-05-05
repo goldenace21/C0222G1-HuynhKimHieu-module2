@@ -1,7 +1,6 @@
 package case_study.models.booking_contract;
 
 import case_study.models.person.Customer;
-import case_study.services.interfacee.ContractService;
 
 public class Contract {
     private String id;
@@ -60,12 +59,6 @@ public class Contract {
 
     @Override
     public String toString() {
-        return "Contract{" +
-                "id='" + id + '\'' +
-                ", idBooking=" + booking.getIdBooking() +
-                ", prepayment='" + prepayment + '\'' +
-                ", totalPayable='" + totalPayable + '\'' +
-                ", idCustomer=" + customer.getIdCard() +
-                '}';
+        return id+ ',' +booking.getIdBooking()+ ',' +prepayment+ ',' +totalPayable+ ',' +customer.getIdCard();
     }
 }

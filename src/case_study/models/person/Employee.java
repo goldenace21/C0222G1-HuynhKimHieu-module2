@@ -17,6 +17,12 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
+    public Employee(String[] array) {
+        super(array[0], array[1],Boolean.parseBoolean(array[2]), array[3], array[4], array[5]);
+        this.level = array[6];
+        this.position = array[7];
+        this.salary =Double.parseDouble(array[8]);
+    }
 
     public String getLevel() {
         return level;
@@ -44,10 +50,6 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return "Employee{" + super.toString() +
-                "level='" + level + '\'' +
-                ", position='" + position + '\'' +
-                ", salary=" + salary +
-                '}';
+        return super.toString() + ',' + level + ','+ position + ',' + salary;
     }
 }

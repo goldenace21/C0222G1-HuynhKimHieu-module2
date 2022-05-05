@@ -13,6 +13,12 @@ public class Customer extends Person {
         this.statusBooking = statusBooking;
     }
 
+    public Customer(String[] array){
+        super(array[0], array[1],Boolean.parseBoolean(array[2]) , array[3], array[4], array[5]);
+        this.type = array[6];
+        this.statusBooking = Boolean.parseBoolean(array[7]);
+    }
+
     public String getType() {
         return type;
     }
@@ -31,9 +37,6 @@ public class Customer extends Person {
 
     @Override
     public String toString() {
-        return "Customer{" + super.toString() +
-                "type='" + type + '\'' +
-                "status booking='" + statusBooking + '\'' +
-                '}';
+        return super.toString() + ',' + type + ',' + statusBooking;
     }
 }
