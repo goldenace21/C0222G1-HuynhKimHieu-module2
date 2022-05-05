@@ -5,7 +5,6 @@ import case_study.services.interfacee.CustomerService;
 import case_study.utils.FacilityRegex;
 import case_study.utils.IOData;
 import case_study.utils.RegexData;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -57,14 +56,13 @@ public class CustomerServiceImpl implements CustomerService {
         }
 
         System.out.println("Enter name: "); name = scanner.nextLine();
-        System.out.println("Enter date of birth: "); dateOfBirth =
-        RegexData.regexAge(scanner.nextLine(), FacilityRegex.REGEX_DATEOFBIRTH);
+        System.out.println("Enter date of birth: ");
+        dateOfBirth = RegexData.regexAge(scanner.nextLine(), FacilityRegex.REGEX_DATEOFBIRTH);
         System.out.println("Enter sex: 1-male 2-female"); sex = (Integer.parseInt(scanner.nextLine())) == 1;
         System.out.println("Enter email: "); email = scanner.nextLine();
         System.out.println("Enter phone number: "); phoneNumber = scanner.nextLine();
         System.out.println("Enter type: "); type = scanner.nextLine();
-        statusBooking = false;
-        customerList.add(new Customer(idCard, name, sex, dateOfBirth, email, phoneNumber, type, statusBooking));
+        customerList.add(new Customer(idCard, name, sex, dateOfBirth, email, phoneNumber, type, false));
         writeToCSV(customerList,CUSTOMER_PATH);
         display();
     }
@@ -83,13 +81,18 @@ public class CustomerServiceImpl implements CustomerService {
                 return;
             }
 
-            System.out.println("Enter name: "); tempCustomer.setName(scanner.nextLine());
-            System.out.println("Enter date of birth: "); tempCustomer.setDateOfBirth(
-            RegexData.regexAge(scanner.nextLine(),FacilityRegex.REGEX_DATEOFBIRTH));
-            System.out.println("Enter sex: 1-male 2-female"); tempCustomer.setSex((Integer.parseInt(scanner.nextLine())) == 1);
-            System.out.println("Enter email: "); tempCustomer.setEmail(scanner.nextLine());
-            System.out.println("Enter phone number: "); tempCustomer.setPhoneNumber(scanner.nextLine());
-            System.out.println("Enter type: "); tempCustomer.setType(scanner.nextLine());
+            System.out.println("Enter name: ");
+            tempCustomer.setName(scanner.nextLine());
+            System.out.println("Enter date of birth: ");
+            tempCustomer.setDateOfBirth(RegexData.regexAge(scanner.nextLine(),FacilityRegex.REGEX_DATEOFBIRTH));
+            System.out.println("Enter sex: 1-male 2-female");
+            tempCustomer.setSex((Integer.parseInt(scanner.nextLine())) == 1);
+            System.out.println("Enter email: ");
+            tempCustomer.setEmail(scanner.nextLine());
+            System.out.println("Enter phone number: ");
+            tempCustomer.setPhoneNumber(scanner.nextLine());
+            System.out.println("Enter type: ");
+            tempCustomer.setType(scanner.nextLine());
             writeToCSV(customerList,IOData.CUSTOMER_PATH);
             display();
         }

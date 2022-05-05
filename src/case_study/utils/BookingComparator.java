@@ -1,7 +1,6 @@
 package case_study.utils;
 
 import case_study.models.booking_contract.Booking;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;

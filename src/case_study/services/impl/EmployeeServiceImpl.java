@@ -1,6 +1,5 @@
 package case_study.services.impl;
 
-import case_study.models.person.Customer;
 import case_study.models.person.Employee;
 import case_study.services.interfacee.EmployeeService;
 import case_study.utils.FacilityRegex;
@@ -12,12 +11,15 @@ import static case_study.controllers.FuramaController.scanner;
 import static case_study.utils.IOData.*;
 
 public class EmployeeServiceImpl implements EmployeeService {
+
     public static List<Employee> employeeList = new ArrayList<>();
+
     static {
         employeeList.add(new Employee("1","hieu",true,"20/11/2001","hieu@",
                                       "0932","manager","position",20.0));
         writeToCSV(employeeList,EMPLOYEE_PATH);
     }
+
     @Override
     public void display() {
         List<Employee> listEmployee = readFile();
@@ -86,7 +88,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             System.out.println("Enter level: "); tempEmployee.setLevel(scanner.nextLine());
             System.out.println("Enter position: "); tempEmployee.setPosition(scanner.nextLine());
             System.out.println("Enter salary: "); tempEmployee.setSalary(Double.parseDouble(scanner.nextLine()));
-            writeToCSV(employeeList, IOData.CUSTOMER_PATH);
+            writeToCSV(employeeList, EMPLOYEE_PATH);
             display();
         }
     }

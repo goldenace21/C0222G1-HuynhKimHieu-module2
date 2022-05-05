@@ -8,7 +8,6 @@ import case_study.services.interfacee.FacilityService;
 import case_study.utils.FacilityRegex;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
 import static case_study.utils.IOData.*;
 
 public class FacilityServiceImpl implements FacilityService {
@@ -36,7 +35,7 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void display() {
-        Map<Facility,Integer> mapFacility = ReadCSVToMap(FACILITY_PATH);
+        Map<Facility,Integer> mapFacility = readCSVToMap(FACILITY_PATH);
         if (mapFacility.isEmpty()) {
             System.err.println("Empty list!");
         } else {
@@ -48,7 +47,7 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void displayMaintain() {
-        Map<Facility,Integer> mapFacility = ReadCSVToMap(FACILITY_PATH);
+        Map<Facility,Integer> mapFacility = readCSVToMap(FACILITY_PATH);
         for (Map.Entry<Facility, Integer> element : mapFacility.entrySet()) {
             if (element.getValue() >= 5)
             System.out.println("Service maintain " + element.getKey() + " times " + element.getValue());

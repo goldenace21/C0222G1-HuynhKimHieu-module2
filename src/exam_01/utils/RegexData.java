@@ -42,9 +42,14 @@ public class RegexData {
                     LocalDate date = LocalDate.parse(temp, formatter);
                     LocalDate now = LocalDate.now();
                     int currentDay = Period.between(now, date).getDays();
-                    if (currentDay > 0) return temp;
-                    else System.err.println("day > " + now.toString());
-                } else System.err.println("Error format date");
+                    if (currentDay > 0) {
+                        return temp;
+                    } else {
+                        System.err.println("day > " + now.toString());
+                    }
+                } else {
+                    System.err.println("Error format date");
+                }
             System.out.println("Enter date again: ");
             temp = scanner.nextLine();
         }
